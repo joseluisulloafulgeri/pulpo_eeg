@@ -1,6 +1,6 @@
 --- 
-title: "YOUR TITLE HERE"
-author: "YOUR NAME HERE"
+title: "Plataforma de usuarios locos por las ondas EEG"
+author: "JL and company"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---

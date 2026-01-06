@@ -1,0 +1,66 @@
+# Jornada práctica de registro EEG
+
+## Objetivo
+
+Comprender cómo se realiza un registro EEG y su relación con el preprocesamiento y los pipelines vistos previamente.
+
+## Conceptos importantes
+
+### El equipo de registro
+
+* Sistema de 64 canales EEG (registra señales cerebrales) + 8 EXG opcionales (registra artefactos fisiológicos).
+* Señal DC-acoplada, 24 bits, bajo ruido.
+* Tasa de sampleo: hasta 2048 Hz.
+* Software de adquisición: ActiView.
+
+### Qué vamos a registrar y por qué
+
+* Registro de **EEG**.
+* Medición de actividad eléctrica cortical en el orden de los **microvoltios**.
+
+---
+
+## 2. Repaso rápido
+
+### Electrodos, referencia y tierra
+
+* **Electrodos**: sensores que miden diferencias de potencial en el cuero cabelludo.
+* **Referencia**: punto respecto al cual se mide cada canal; puede redefinirse offline.
+* **Tierra / sistema activo**: estabiliza el sistema y reduce ruido común (no es señal cerebral).
+
+---
+
+### Impedancia y ruido
+
+**Impedancia**
+
+* Resistencia entre electrodo y piel.
+* Idealmente baja y balanceada.
+* Impedancia alta → más ruido y señal inestable.
+
+**Ruido**
+
+* Red eléctrica (50/60 Hz).
+* Mal contacto electrodo–piel.
+* Movimiento de cables o del sujeto.
+
+---
+
+### Artefactos comunes
+
+* **EOG (ojos)**
+  Parpadeos y movimientos oculares; gran amplitud; predominio frontal.
+
+* **EMG (músculo)**
+  Tensión mandibular, cuello o frente; señal rápida y de alta frecuencia.
+
+* **Drift**
+  Cambios lentos de la línea base; asociado a sudor, movimientos lentos o cambios de impedancia.
+
+---
+
+## 3. Actividad
+
+* Protocolo experimental.
+* Tarea de control cognitivo.
+

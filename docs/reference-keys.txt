@@ -1,3 +1,10 @@
-down-the-rabbit-hole
-the-pool-of-tears
-a-caucus-race-and-a-long-tale
+jornada-práctica-de-registro-eeg
+objetivo
+conceptos-importantes
+el-equipo-de-registro
+qué-vamos-a-registrar-y-por-qué
+repaso-rápido
+electrodos-referencia-y-tierra
+impedancia-y-ruido
+artefactos-comunes
+actividad

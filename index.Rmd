@@ -1,9 +1,14 @@
 --- 
 title: "Plataforma de usuarios locos por las ondas EEG"
-author: "JL and company"
-date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
-# Down the rabbit-hole
+# Preámbulo {-}
 
+Esta plataforma fue creada para comprender qué es la electrofisiología cognitiva.
+
+```{r, echo=FALSE, out.width='70%', fig.align='center', fig.cap=NULL}
+knitr::include_graphics('images/pulpo_eeg.png')
+```
+
+<p align="center">¡Que disfrutes de esta plataforma!</p>

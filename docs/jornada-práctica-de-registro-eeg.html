@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Plataforma de usuarios locos por las ondas EEG</title>
-  <meta name="description" content="Plataforma de usuarios locos por las ondas EEG" />
+  <title>Capítulo 1 Jornada práctica de registro EEG | Plataforma de usuarios locos por las ondas EEG</title>
+  <meta name="description" content="Capítulo 1 Jornada práctica de registro EEG | Plataforma de usuarios locos por las ondas EEG" />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Plataforma de usuarios locos por las ondas EEG" />
+  <meta property="og:title" content="Capítulo 1 Jornada práctica de registro EEG | Plataforma de usuarios locos por las ondas EEG" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Plataforma de usuarios locos por las ondas EEG" />
+  <meta name="twitter:title" content="Capítulo 1 Jornada práctica de registro EEG | Plataforma de usuarios locos por las ondas EEG" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="index.html"/>
 
-<link rel="next" href="jornada-práctica-de-registro-eeg.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -110,25 +110,88 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Plataforma de usuarios locos por las ondas EEG</h1>
+<div id="jornada-práctica-de-registro-eeg" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Capítulo 1</span> Jornada práctica de registro EEG<a href="jornada-práctica-de-registro-eeg.html#jornada-práctica-de-registro-eeg" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="objetivo" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Objetivo<a href="jornada-práctica-de-registro-eeg.html#objetivo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Comprender cómo se realiza un registro EEG y su relación con el preprocesamiento y los pipelines vistos previamente.</p>
 </div>
-<div id="preámbulo" class="section level1 unnumbered hasAnchor">
-<h1>Preámbulo<a href="index.html#preámbulo" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Esta plataforma fue creada para comprender qué es la electrofisiología cognitiva.</p>
-<p><img src="images/pulpo_eeg.png" width="70%" style="display: block; margin: auto;" /></p>
-<p align="center">
-¡Que disfrutes de esta plataforma!
-</p>
+<div id="conceptos-importantes" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Conceptos importantes<a href="jornada-práctica-de-registro-eeg.html#conceptos-importantes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="el-equipo-de-registro" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> El equipo de registro<a href="jornada-práctica-de-registro-eeg.html#el-equipo-de-registro" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Sistema de 64 canales EEG (registra señales cerebrales) + 8 EXG opcionales (registra artefactos fisiológicos).</li>
+<li>Señal DC-acoplada, 24 bits, bajo ruido.</li>
+<li>Tasa de sampleo: hasta 2048 Hz.</li>
+<li>Software de adquisición: ActiView.</li>
+</ul>
+</div>
+<div id="qué-vamos-a-registrar-y-por-qué" class="section level3 hasAnchor" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Qué vamos a registrar y por qué<a href="jornada-práctica-de-registro-eeg.html#qué-vamos-a-registrar-y-por-qué" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Registro de <strong>EEG</strong>.</li>
+<li>Medición de actividad eléctrica cortical en el orden de los <strong>microvoltios</strong>.</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="repaso-rápido" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> 2. Repaso rápido<a href="jornada-práctica-de-registro-eeg.html#repaso-rápido" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="electrodos-referencia-y-tierra" class="section level3 hasAnchor" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Electrodos, referencia y tierra<a href="jornada-práctica-de-registro-eeg.html#electrodos-referencia-y-tierra" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Electrodos</strong>: sensores que miden diferencias de potencial en el cuero cabelludo.</li>
+<li><strong>Referencia</strong>: punto respecto al cual se mide cada canal; puede redefinirse offline.</li>
+<li><strong>Tierra / sistema activo</strong>: estabiliza el sistema y reduce ruido común (no es señal cerebral).</li>
+</ul>
+<hr />
+</div>
+<div id="impedancia-y-ruido" class="section level3 hasAnchor" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> Impedancia y ruido<a href="jornada-práctica-de-registro-eeg.html#impedancia-y-ruido" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Impedancia</strong></p>
+<ul>
+<li>Resistencia entre electrodo y piel.</li>
+<li>Idealmente baja y balanceada.</li>
+<li>Impedancia alta → más ruido y señal inestable.</li>
+</ul>
+<p><strong>Ruido</strong></p>
+<ul>
+<li>Red eléctrica (50/60 Hz).</li>
+<li>Mal contacto electrodo–piel.</li>
+<li>Movimiento de cables o del sujeto.</li>
+</ul>
+<hr />
+</div>
+<div id="artefactos-comunes" class="section level3 hasAnchor" number="1.3.3">
+<h3><span class="header-section-number">1.3.3</span> Artefactos comunes<a href="jornada-práctica-de-registro-eeg.html#artefactos-comunes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><strong>EOG (ojos)</strong>
+Parpadeos y movimientos oculares; gran amplitud; predominio frontal.</p></li>
+<li><p><strong>EMG (músculo)</strong>
+Tensión mandibular, cuello o frente; señal rápida y de alta frecuencia.</p></li>
+<li><p><strong>Drift</strong>
+Cambios lentos de la línea base; asociado a sudor, movimientos lentos o cambios de impedancia.</p></li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="actividad" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> 3. Actividad<a href="jornada-práctica-de-registro-eeg.html#actividad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Protocolo experimental.</li>
+<li>Tarea de control cognitivo.</li>
+</ul>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="jornada-práctica-de-registro-eeg.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -159,7 +222,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/joseluisulloafulgeri/pulpo_eeg/edit/main/index.Rmd",
+    "link": "https://github.com/joseluisulloafulgeri/pulpo_eeg/edit/main/01-inicio.Rmd",
     "text": "Edit"
   },
   "history": {
@@ -167,7 +230,7 @@ gitbook.start({
     "text": null
   },
   "view": {
-    "link": "https://github.com/joseluisulloafulgeri/pulpo_eeg/blob/main/index.Rmd",
+    "link": "https://github.com/joseluisulloafulgeri/pulpo_eeg/blob/main/01-inicio.Rmd",
     "text": null
   },
   "download": null,

@@ -1,8 +1,8 @@
-# Jornada práctica de registro EEG
+# Práctico EEG (1)
 
 ## Objetivo
 
-Comprender cómo se realiza un registro EEG y su relación con el preprocesamiento y los pipelines vistos previamente.
+Presenciar un registro de EEG para comprender aspectos básicos relacionados con el EEG.
 
 ## Conceptos importantes
 
@@ -13,54 +13,28 @@ Comprender cómo se realiza un registro EEG y su relación con el preprocesamien
 * Tasa de sampleo: hasta 2048 Hz.
 * Software de adquisición: ActiView.
 
-### Qué vamos a registrar y por qué
+### Qué vamos a registrar
 
-* Registro de **EEG**.
-* Medición de actividad eléctrica cortical en el orden de los **microvoltios**.
+* Se registrará la actividad eléctrica que aparece en el cuero cabelludo.
+* Esta actividad de expresa en el orden de los **microvoltios**.
 
----
-
-## 2. Repaso rápido
+## Repaso rápido
 
 ### Electrodos, referencia y tierra
 
 * **Electrodos**: sensores que miden diferencias de potencial en el cuero cabelludo.
-* **Referencia**: punto respecto al cual se mide cada canal; puede redefinirse offline.
-* **Tierra / sistema activo**: estabiliza el sistema y reduce ruido común (no es señal cerebral).
-
----
+* **Referencia**: punto respecto al cual se mide la actividad eléctrica de cada canal.
+* **Tierra / sistema activo**: es un retorno común para la corriente (cierra el circuito).
 
 ### Impedancia y ruido
 
-**Impedancia**
+* **Impedancia**: Es la resistencia que hay al flujo de corriente. Se mide en Ohms. Y para un registro EEG la idea es que la impedancia sea lo más baja posible.
+* **Ruido**: Es lo que no constituye actividad eléctrica cerebral. Por ejemplo: red eléctrica (50/60 Hz), mal contacto electrodo–piel, y movimiento de cables o del sujeto.
 
-* Resistencia entre electrodo y piel.
-* Idealmente baja y balanceada.
-* Impedancia alta → más ruido y señal inestable.
-
-**Ruido**
-
-* Red eléctrica (50/60 Hz).
-* Mal contacto electrodo–piel.
-* Movimiento de cables o del sujeto.
-
----
 
 ### Artefactos comunes
 
-* **EOG (ojos)**
-  Parpadeos y movimientos oculares; gran amplitud; predominio frontal.
-
-* **EMG (músculo)**
-  Tensión mandibular, cuello o frente; señal rápida y de alta frecuencia.
-
-* **Drift**
-  Cambios lentos de la línea base; asociado a sudor, movimientos lentos o cambios de impedancia.
-
----
-
-## 3. Actividad
-
-* Protocolo experimental.
-* Tarea de control cognitivo.
-
+* **EOG (actividad de los ojos)**: Parpadeos y movimientos oculares; gran amplitud; predominio frontal.
+* **EMG (actividad muscular)**: Tensión mandibular, cuello o frente; señal rápida y de alta frecuencia.
+* **ECG (actividad cardiaca)**: Actividad del corazón.
+* **Derivas**: Cambios lentos de la señal. Muchas veces está asociado a sudor, movimientos lentos o cambios de impedancia.

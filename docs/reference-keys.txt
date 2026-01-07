@@ -1,10 +1,14 @@
-jornada-práctica-de-registro-eeg
+práctico-eeg-1
 objetivo
 conceptos-importantes
 el-equipo-de-registro
-qué-vamos-a-registrar-y-por-qué
+qué-vamos-a-registrar
 repaso-rápido
 electrodos-referencia-y-tierra
 impedancia-y-ruido
 artefactos-comunes
-actividad
+práctico-eeg-2
+objetivo-del-estudio
+protocolo-experimental
+práctico-eeg-3
+lista-de-chequeo

@@ -1,4 +1,4 @@
-# Práctico EEG (2)
+# Práctico EEG - 2
 
 ## Objetivo del estudio
 

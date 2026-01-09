@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | Plataforma de usuarios locos por las ondas EEG</title>
-  <meta name="description" content="Page not found | Plataforma de usuarios locos por las ondas EEG" />
+  <title>Capítulo 1 Práctico EEG - 1 | Plataforma de usuarios locos por las ondas EEG</title>
+  <meta name="description" content="Capítulo 1 Práctico EEG - 1 | Plataforma de usuarios locos por las ondas EEG" />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | Plataforma de usuarios locos por las ondas EEG" />
+  <meta property="og:title" content="Capítulo 1 Práctico EEG - 1 | Plataforma de usuarios locos por las ondas EEG" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | Plataforma de usuarios locos por las ondas EEG" />
+  <meta name="twitter:title" content="Capítulo 1 Práctico EEG - 1 | Plataforma de usuarios locos por las ondas EEG" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="index.html"/>
+<link rel="next" href="práctico-eeg---2.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -124,19 +124,61 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="práctico-eeg---1" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Capítulo 1</span> Práctico EEG - 1<a href="práctico-eeg---1.html#práctico-eeg---1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="conceptos-importantes" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Conceptos importantes<a href="práctico-eeg---1.html#conceptos-importantes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El objetivo de este práctico es presenciar un registro de EEG para comprender aspectos básicos relacionados con la electroencefalografía (EEG)</p>
+<div id="el-equipo-de-registro" class="section level3 hasAnchor" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> El equipo de registro<a href="práctico-eeg---1.html#el-equipo-de-registro" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Sistema de 64 canales EEG (registra señales cerebrales) + 8 EXG opcionales (registra artefactos fisiológicos)</li>
+<li>Señal DC-acoplada, 24 bits, bajo ruido</li>
+<li>Tasa de sampleo: hasta 2048 Hz</li>
+<li>Software de adquisición: ActiView</li>
+</ul>
+</div>
+<div id="qué-vamos-a-registrar" class="section level3 hasAnchor" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Qué vamos a registrar<a href="práctico-eeg---1.html#qué-vamos-a-registrar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Se registrará la actividad eléctrica que aparece en el cuero cabelludo</li>
+<li>Esta actividad de expresa en el orden de los <strong>microvoltios</strong></li>
+</ul>
+</div>
+<div id="electrodos-referencia-y-tierra" class="section level3 hasAnchor" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Electrodos, referencia y tierra<a href="práctico-eeg---1.html#electrodos-referencia-y-tierra" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Electrodos</strong>: Sensores que miden diferencias de potencial en el cuero cabelludo</li>
+<li><strong>Referencia</strong>: Punto respecto al cual se mide la actividad eléctrica de cada canal</li>
+<li><strong>Tierra / sistema activo</strong>: Es un retorno común para la corriente (cierra el circuito)</li>
+</ul>
+</div>
+<div id="impedancia-y-ruido" class="section level3 hasAnchor" number="1.1.4">
+<h3><span class="header-section-number">1.1.4</span> Impedancia y ruido<a href="práctico-eeg---1.html#impedancia-y-ruido" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Impedancia</strong>: Es la resistencia que hay al flujo de corriente Se mide en Ohms. Y para un registro EEG la idea es que la impedancia sea lo más baja posible</li>
+<li><strong>Ruido</strong>: Es lo que no constituye actividad eléctrica cerebral Por ejemplo: red eléctrica (50/60 Hz), mal contacto electrodo–piel, y movimiento de cables o del sujeto</li>
+</ul>
+</div>
+<div id="artefactos-comunes" class="section level3 hasAnchor" number="1.1.5">
+<h3><span class="header-section-number">1.1.5</span> Artefactos comunes<a href="práctico-eeg---1.html#artefactos-comunes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>EOG (actividad de los ojos)</strong>: Parpadeos y movimientos oculares; gran amplitud; predominio frontal</li>
+<li><strong>EMG (actividad muscular)</strong>: Tensión mandibular, cuello o frente; señal rápida y de alta frecuencia</li>
+<li><strong>ECG (actividad cardiaca)</strong>: Actividad del corazón. Es una señal prominente y tiene una frecuencia característica</li>
+<li><strong>Derivas</strong>: Cambios lentos de la señal. Muchas veces está asociado a sudor, movimientos lentos o cambios de impedancia</li>
+</ul>
+
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="práctico-eeg---2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -167,7 +209,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/joseluisulloafulgeri/pulpo_eeg/edit/main/%s",
+    "link": "https://github.com/joseluisulloafulgeri/pulpo_eeg/edit/main/01-inicio.Rmd",
     "text": "Edit"
   },
   "history": {
@@ -175,7 +217,7 @@ gitbook.start({
     "text": null
   },
   "view": {
-    "link": "https://github.com/joseluisulloafulgeri/pulpo_eeg/blob/main/%s",
+    "link": "https://github.com/joseluisulloafulgeri/pulpo_eeg/blob/main/01-inicio.Rmd",
     "text": null
   },
   "download": null,

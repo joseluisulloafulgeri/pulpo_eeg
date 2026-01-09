@@ -1,40 +1,36 @@
-# Práctico EEG (1)
-
-## Objetivo
-
-Presenciar un registro de EEG para comprender aspectos básicos relacionados con el EEG.
+# Práctico EEG - 1
 
 ## Conceptos importantes
 
+El objetivo de este práctico es presenciar un registro de EEG para comprender aspectos básicos relacionados con la electroencefalografía (EEG)
+
 ### El equipo de registro
 
-* Sistema de 64 canales EEG (registra señales cerebrales) + 8 EXG opcionales (registra artefactos fisiológicos).
-* Señal DC-acoplada, 24 bits, bajo ruido.
-* Tasa de sampleo: hasta 2048 Hz.
-* Software de adquisición: ActiView.
+* Sistema de 64 canales EEG (registra señales cerebrales) + 8 EXG opcionales (registra artefactos fisiológicos)
+* Señal DC-acoplada, 24 bits, bajo ruido
+* Tasa de sampleo: hasta 2048 Hz
+* Software de adquisición: ActiView
 
 ### Qué vamos a registrar
 
-* Se registrará la actividad eléctrica que aparece en el cuero cabelludo.
-* Esta actividad de expresa en el orden de los **microvoltios**.
-
-## Repaso rápido
+* Se registrará la actividad eléctrica que aparece en el cuero cabelludo
+* Esta actividad de expresa en el orden de los **microvoltios**
 
 ### Electrodos, referencia y tierra
 
-* **Electrodos**: sensores que miden diferencias de potencial en el cuero cabelludo.
-* **Referencia**: punto respecto al cual se mide la actividad eléctrica de cada canal.
-* **Tierra / sistema activo**: es un retorno común para la corriente (cierra el circuito).
+* **Electrodos**: Sensores que miden diferencias de potencial en el cuero cabelludo
+* **Referencia**: Punto respecto al cual se mide la actividad eléctrica de cada canal
+* **Tierra / sistema activo**: Es un retorno común para la corriente (cierra el circuito)
 
 ### Impedancia y ruido
 
-* **Impedancia**: Es la resistencia que hay al flujo de corriente. Se mide en Ohms. Y para un registro EEG la idea es que la impedancia sea lo más baja posible.
-* **Ruido**: Es lo que no constituye actividad eléctrica cerebral. Por ejemplo: red eléctrica (50/60 Hz), mal contacto electrodo–piel, y movimiento de cables o del sujeto.
+* **Impedancia**: Es la resistencia que hay al flujo de corriente Se mide en Ohms. Y para un registro EEG la idea es que la impedancia sea lo más baja posible
+* **Ruido**: Es lo que no constituye actividad eléctrica cerebral Por ejemplo: red eléctrica (50/60 Hz), mal contacto electrodo–piel, y movimiento de cables o del sujeto
 
 
 ### Artefactos comunes
 
-* **EOG (actividad de los ojos)**: Parpadeos y movimientos oculares; gran amplitud; predominio frontal.
-* **EMG (actividad muscular)**: Tensión mandibular, cuello o frente; señal rápida y de alta frecuencia.
-* **ECG (actividad cardiaca)**: Actividad del corazón.
-* **Derivas**: Cambios lentos de la señal. Muchas veces está asociado a sudor, movimientos lentos o cambios de impedancia.
+* **EOG (actividad de los ojos)**: Parpadeos y movimientos oculares; gran amplitud; predominio frontal
+* **EMG (actividad muscular)**: Tensión mandibular, cuello o frente; señal rápida y de alta frecuencia
+* **ECG (actividad cardiaca)**: Actividad del corazón. Es una señal prominente y tiene una frecuencia característica
+* **Derivas**: Cambios lentos de la señal. Muchas veces está asociado a sudor, movimientos lentos o cambios de impedancia

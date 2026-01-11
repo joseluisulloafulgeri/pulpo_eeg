@@ -29,7 +29,7 @@
   
   
 <link rel="prev" href="práctico-eeg---3.html"/>
-<link rel="next" href="práctico-eeg-4.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -88,8 +88,7 @@
 </ul></li>
 <li class="chapter" data-level="2" data-path="práctico-eeg---2.html"><a href="práctico-eeg---2.html"><i class="fa fa-check"></i><b>2</b> Práctico EEG - 2</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="práctico-eeg---2.html"><a href="práctico-eeg---2.html#objetivo-del-estudio"><i class="fa fa-check"></i><b>2.1</b> Objetivo del estudio</a></li>
-<li class="chapter" data-level="2.2" data-path="práctico-eeg---2.html"><a href="práctico-eeg---2.html#protocolo-experimental"><i class="fa fa-check"></i><b>2.2</b> Protocolo experimental</a></li>
+<li class="chapter" data-level="2.1" data-path="práctico-eeg---2.html"><a href="práctico-eeg---2.html#antedentes-del-estudio"><i class="fa fa-check"></i><b>2.1</b> Antedentes del estudio</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="práctico-eeg---3.html"><a href="práctico-eeg---3.html"><i class="fa fa-check"></i><b>3</b> Práctico EEG - 3</a>
 <ul>
@@ -100,10 +99,6 @@
 <li class="chapter" data-level="4" data-path="práctico-eeg---4.html"><a href="práctico-eeg---4.html"><i class="fa fa-check"></i><b>4</b> Práctico EEG - 4</a>
 <ul>
 <li class="chapter" data-level="4.0.1" data-path="práctico-eeg---4.html"><a href="práctico-eeg---4.html#día-d"><i class="fa fa-check"></i><b>4.0.1</b> Día D</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="práctico-eeg-4.html"><a href="práctico-eeg-4.html"><i class="fa fa-check"></i><b>5</b> Práctico EEG (4)</a>
-<ul>
-<li class="chapter" data-level="5.0.1" data-path="práctico-eeg-4.html"><a href="práctico-eeg-4.html#lista-de-chequeo"><i class="fa fa-check"></i><b>5.0.1</b> Lista de chequeo</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -132,22 +127,14 @@
 <ul>
 <li>Llegar al menos 40 minutos antes</li>
 <li>Abrir ventanas y ventilar la sala</li>
-<li>Encender: PC de adquisición + PC de estimulación</li>
+<li>Encender: PC de adquisición (computador donde se recolectan los datos de EEG) + PC de estimulación (computador que “genera” la tarea que hace el participante)</li>
 </ul>
 <p><strong>Material administrativo:</strong></p>
 <ul>
 <li>Tener consentimientos listos
 <img src="docs/images/papeles.jpg" width="50%" style="display: block; margin: auto;" /></li>
 <li>Abrir logbook / bitácora</li>
-<li>Definir y anotar ID del participante</li>
-</ul>
-<p><strong>Equipamiento y consumibles:</strong></p>
-<ul>
-<li>Gorras EEG (tallas adecuadas)</li>
-<li>Amplificador y batería (revisar la carga)</li>
-<li>Interfaz de triggers</li>
-<li>Fibra óptica (conecta amplificador a interfaz de triggers)</li>
-<li>Electrodos externos (EOG y mastoideos)</li>
+<li>Definir y anotar número de identificación (ID) del participante</li>
 </ul>
 <p><strong>Insumos:</strong></p>
 <ul>
@@ -159,20 +146,21 @@
 <li>Anillos/stickers para electrodos</li>
 </ul>
 <p><img src="docs/images/insumos.jpg" width="60%" style="display: block; margin: auto;" /></p>
-<p><strong>Vista general del equipamiento:</strong></p>
+<p><strong>Equipamiento:</strong></p>
 <ul>
-<li>PCs (adquisición y estímulos)</li>
-<li>Amplificador EEG</li>
+<li>PCs (adquisición y estimulación)</li>
+<li>Amplificador y batería (revisar que el amplificador está cargado, ver abajo)</li>
 <li>Interfaz de triggers</li>
-<li>Cables y fibra óptica</li>
-<li>Batería del amplificador</li>
+<li>Cables varios (la fibra óptica conecta amplificador a interfaz de triggers)</li>
 </ul>
 <p><strong>Gorras y electrodos:</strong></p>
 <ul>
-<li>Gorras EEG (tallas disponibles)</li>
-<li>Electrodos EEG</li>
-<li>Electrodos EXG (EOG, mastoideos)</li>
-<li>Stickers/anillos para electrodos</li>
+<li>Gorras EEG (contar con varias tallas)
+<img src="docs/images/Insumos_EEG_008.jpg" width="60%" style="display: block; margin: auto;" /></li>
+<li>Electrodos EEG
+<img src="docs/images/Insumos_EEG_025.jpg" width="50%" style="display: block; margin: auto;" /></li>
+<li>Electrodos EXG (EOG, mastoides)
+<img src="docs/images/Insumos_EEG_018.jpg" width="50%" style="display: block; margin: auto;" /></li>
 </ul>
 <p><strong>Conexiones y configuración inicial:</strong></p>
 <ul>
@@ -186,11 +174,12 @@
 <p><strong>Configuración en PC de adquisición:</strong></p>
 <ul>
 <li>Abrir ActiveView</li>
-<li>Cargar archivo de configuración correspondiente</li>
-<li>Verificar nivel de batería del amplificador</li>
+<li>Cargar archivo de configuración correspondiente
+<img src="docs/images/Insumos_EEG_027.jpg" width="60%" style="display: block; margin: auto;" /></li>
+<li>Verificar nivel de batería del amplificador (se enciende una luz azul que parpadea)</li>
 <li>Ajustar tasa de muestreo a 1024 Hz (decimación 1/2)</li>
 </ul>
-<p><img src="docs/images/decim.jpeg" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="docs/images/decim.jpeg" width="60%" style="display: block; margin: auto;" /></p>
 <p><strong>Verificación de triggers:</strong></p>
 <ul>
 <li>Ejecutar tarea de prueba</li>
@@ -199,7 +188,8 @@
 <ul>
 <li>Los triggers aparecen</li>
 <li>Coinciden con el esquema esperado</li>
-<li>La secuencia es correcta</li>
+<li>La secuencia es correcta
+<img src="docs/images/triggers_compiled.jpg" width="100%" style="display: block; margin: auto;" /></li>
 </ul></li>
 </ul>
 <p><strong>Llegada del/la participante:</strong></p>
@@ -286,8 +276,7 @@
 <li>Verificar señal verde de grabación</li>
 <li>Monitorear:
 <ul>
-<li>Triggers
-<img src="docs/images/triggers_compiled.jpg" width="100%" style="display: block; margin: auto;" /></li>
+<li>Triggers</li>
 <li>Respuestas</li>
 <li>Parpadeos en momentos indicados</li>
 </ul></li>
@@ -311,8 +300,8 @@
           </div>
         </div>
       </div>
-<a href="práctico-eeg---3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="práctico-eeg-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="práctico-eeg---3.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

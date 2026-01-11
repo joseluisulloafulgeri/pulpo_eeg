@@ -6,13 +6,10 @@ electrodos-referencia-y-tierra
 impedancia-y-ruido
 artefactos-comunes
 práctico-eeg---2
-objetivo-del-estudio
-protocolo-experimental
+antedentes-del-estudio
 práctico-eeg---3
 día-d---varios-días
 día-d---23-días
 día-d---1-día
 práctico-eeg---4
 día-d
-práctico-eeg-4
-lista-de-chequeo

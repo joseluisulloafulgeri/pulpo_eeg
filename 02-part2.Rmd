@@ -1,9 +1,17 @@
 # Práctico EEG - 2
 
-## Objetivo del estudio
+## Antedentes del estudio
 
-XXX
+* Este estudio es liderado por Fabiola Salas (y apoyado por Marcelo Leiva y José Luis Ulloa).
 
-## Protocolo experimental
+* En este estudio se buscar investigar el rol de los rasgos límite de personalidad en la flexibilidad cognitiva.
 
+* Se miden los rasgos de personalidad límite a través de la aplicación de un instrumento.
 
+* Se miden aspectos conductuales y neuronales de la flexibilidad cognitiva aplicando una tarea de task-switching mientras se registra la actividad cerebral con EEG.
+
+* La tarea de task-switching consiste en responder a un mismo estímulo usando reglas distintas, indicadas por una señal. En algunos ensayos la regla se repite (no-switch) y en otros cambia (switch). Los ensayos con cambio suelen producir respuestas más lentas y menos precisas, lo que se conoce como "costo de cambio" y refleja la flexibilidad cognitiva.
+
+* Con estas mediciones se buscan identificar asocaciaciones en los niveles rasgos límite de la personalidad y variaciones en el desempeño de la tarea de task-switching  (tiempos de reacción y precisión asociados con los "costos de cambio")
+
+* Se analizarán potenciales relacionados a eventos (ERP; P2, N2 y P3) y actividad oscilatoria (alfa y theta).

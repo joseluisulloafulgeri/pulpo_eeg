@@ -6,7 +6,7 @@
 
 * Llegar al menos 40 minutos antes
 * Abrir ventanas y ventilar la sala
-* Encender: PC de adquisición + PC de estimulación
+* Encender: PC de adquisición (computador donde se recolectan los datos de EEG) + PC de estimulación (computador que "genera" la tarea que hace el participante)
 
 **Material administrativo:**
 
@@ -15,15 +15,7 @@
 knitr::include_graphics('docs/images/papeles.jpg')
 ```
 * Abrir logbook / bitácora
-* Definir y anotar ID del participante
-
-**Equipamiento y consumibles:**
-
-* Gorras EEG (tallas adecuadas)
-* Amplificador y batería (revisar la carga)
-* Interfaz de triggers
-* Fibra óptica (conecta amplificador a interfaz de triggers)
-* Electrodos externos (EOG y mastoideos)
+* Definir y anotar número de identificación (ID) del participante
 
 **Insumos:**
 
@@ -38,20 +30,27 @@ knitr::include_graphics('docs/images/papeles.jpg')
 knitr::include_graphics('docs/images/insumos.jpg')
 ```
 
-**Vista general del equipamiento:**
+**Equipamiento:**
 
-* PCs (adquisición y estímulos)
-* Amplificador EEG
+* PCs (adquisición y estimulación)
+* Amplificador y batería (revisar que el amplificador está cargado, ver abajo)
 * Interfaz de triggers
-* Cables y fibra óptica
-* Batería del amplificador
+* Cables varios (la fibra óptica conecta amplificador a interfaz de triggers)
 
 **Gorras y electrodos:**
 
-* Gorras EEG (tallas disponibles)
+* Gorras EEG (contar con varias tallas)
+```{r, echo=FALSE, out.width='60%', fig.align='center', fig.cap=NULL}
+knitr::include_graphics('docs/images/Insumos_EEG_008.jpg')
+```
 * Electrodos EEG
-* Electrodos EXG (EOG, mastoideos)
-* Stickers/anillos para electrodos
+```{r, echo=FALSE, out.width='50%', fig.align='center', fig.cap=NULL}
+knitr::include_graphics('docs/images/Insumos_EEG_025.jpg')
+```
+* Electrodos EXG (EOG, mastoides)
+```{r, echo=FALSE, out.width='50%', fig.align='center', fig.cap=NULL}
+knitr::include_graphics('docs/images/Insumos_EEG_018.jpg')
+```
 
 **Conexiones y configuración inicial:**
 
@@ -71,10 +70,13 @@ knitr::include_graphics('docs/images/esquema_eeg_setup_2.jpg')
 
 * Abrir ActiveView
 * Cargar archivo de configuración correspondiente
-* Verificar nivel de batería del amplificador
+```{r, echo=FALSE, out.width='60%', fig.align='center', fig.cap=NULL}
+knitr::include_graphics('docs/images/Insumos_EEG_027.jpg')
+```
+* Verificar nivel de batería del amplificador (se enciende una luz azul que parpadea)
 * Ajustar tasa de muestreo a 1024 Hz (decimación 1/2)
 
-```{r, echo=FALSE, out.width='80%', fig.align='center', fig.cap=NULL}
+```{r, echo=FALSE, out.width='60%', fig.align='center', fig.cap=NULL}
 knitr::include_graphics('docs/images/decim.jpeg')
 ```
 
@@ -86,6 +88,9 @@ knitr::include_graphics('docs/images/decim.jpeg')
   * Los triggers aparecen
   * Coinciden con el esquema esperado
   * La secuencia es correcta
+```{r, echo=FALSE, out.width='100%', fig.align='center', fig.cap=NULL}
+knitr::include_graphics('docs/images/triggers_compiled.jpg')
+```    
 
 **Llegada del/la participante:**
 
@@ -161,9 +166,6 @@ knitr::include_graphics('docs/images/decim.jpeg')
   * Verificar señal verde de grabación
   * Monitorear:
     * Triggers
-```{r, echo=FALSE, out.width='100%', fig.align='center', fig.cap=NULL}
-knitr::include_graphics('docs/images/triggers_compiled.jpg')
-```    
     * Respuestas
     * Parpadeos en momentos indicados
   * En pausas, chequear estado del participante

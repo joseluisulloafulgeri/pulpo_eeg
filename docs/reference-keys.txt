@@ -1,3 +1,6 @@
+electrofisiología-cognitiva
+qué-es-la-electrofisiología-cognitiva
+alguna-terminología-usada
 registro-del-eeg
 conceptos-importantes
 el-equipo-de-registro

@@ -1,5 +1,5 @@
 --- 
-title: "Plataforma de usuarios locos por las ondas EEG"
+title: "Plataforma2 de usuarios locos por las ondas EEG"
 site: bookdown::bookdown_site
 ---
 

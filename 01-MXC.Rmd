@@ -1,6 +1,6 @@
 # Electrofisiología cognitiva
 
-## ¿Qué es la electrofisiología cognitiva? 
+## ¿Qué es la electrofisiología cognitiva?.
 
 La electrofisiología cognitiva corresponde al estudio de cómo las funciones cognitivas (percepción, memoria, lenguaje, emociones, etc.) son ejecutadas por la actividad eléctrica producida por una población de neuronas.
 

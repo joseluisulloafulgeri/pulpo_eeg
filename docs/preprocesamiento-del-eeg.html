@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 2 Preprocesamiento del EEG | Plataforma2 de usuarios locos por las ondas EEG</title>
+  <meta name="description" content="Capítulo 2 Preprocesamiento del EEG | Plataforma2 de usuarios locos por las ondas EEG" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 2 Preprocesamiento del EEG | Plataforma2 de usuarios locos por las ondas EEG" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 2 Preprocesamiento del EEG | Plataforma2 de usuarios locos por las ondas EEG" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="electrofisiología-cognitiva.html"/>
+<link rel="next" href="registro-del-eeg.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Pulpo-EEG</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preámbulo</a></li>
+<li class="chapter" data-level="1" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html"><i class="fa fa-check"></i><b>1</b> Electrofisiología cognitiva</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#qué-es"><i class="fa fa-check"></i><b>1.1</b> ¿Qué es?</a></li>
+<li class="chapter" data-level="1.2" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#qué-se-registra-con-eeg"><i class="fa fa-check"></i><b>1.2</b> ¿Qué se registra con EEG?</a></li>
+<li class="chapter" data-level="1.3" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#para-qué-usar-el-eeg"><i class="fa fa-check"></i><b>1.3</b> ¿Para qué usar el EEG?</a></li>
+<li class="chapter" data-level="1.4" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#cuándo-no-es-adecuado"><i class="fa fa-check"></i><b>1.4</b> ¿Cuándo no es adecuado?</a></li>
+<li class="chapter" data-level="1.5" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#erps"><i class="fa fa-check"></i><b>1.5</b> ERPs</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#ventajas"><i class="fa fa-check"></i><b>1.5.1</b> Ventajas</a></li>
+<li class="chapter" data-level="1.5.2" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#limitaciones"><i class="fa fa-check"></i><b>1.5.2</b> Limitaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#análisis-tf"><i class="fa fa-check"></i><b>1.6</b> Análisis TF</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#ventajas-1"><i class="fa fa-check"></i><b>1.6.1</b> Ventajas</a></li>
+<li class="chapter" data-level="1.6.2" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#limitaciones-1"><i class="fa fa-check"></i><b>1.6.2</b> Limitaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#conceptos-importantes"><i class="fa fa-check"></i><b>1.7</b> Conceptos importantes</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#en-el-tiempo"><i class="fa fa-check"></i><b>1.7.1</b> En el tiempo</a></li>
+<li class="chapter" data-level="1.7.2" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#en-el-espacio"><i class="fa fa-check"></i><b>1.7.2</b> En el espacio</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#topografías"><i class="fa fa-check"></i><b>1.8</b> Topografías</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#localización-topográfica-y-localización-cerebral"><i class="fa fa-check"></i><b>1.8.1</b> Localización topográfica y localización cerebral</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#lo-que-importa-en-tf"><i class="fa fa-check"></i><b>1.9</b> Lo que importa en TF</a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#frecuencia-potencia-y-fase"><i class="fa fa-check"></i><b>1.9.1</b> Frecuencia, potencia y fase</a></li>
+<li class="chapter" data-level="1.9.2" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#compromiso-entre-precisión-temporal-y-frecuencial"><i class="fa fa-check"></i><b>1.9.2</b> Compromiso entre precisión temporal y frecuencial</a></li>
+<li class="chapter" data-level="1.9.3" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#los-datos-tf"><i class="fa fa-check"></i><b>1.9.3</b> Los datos TF</a></li>
+<li class="chapter" data-level="1.9.4" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#cómo-leer-un-mapa-tiempo-frecuencia"><i class="fa fa-check"></i><b>1.9.4</b> Cómo leer un mapa tiempo-frecuencia</a></li>
+<li class="chapter" data-level="1.9.5" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#qué-patrones-requieren-especial-atención"><i class="fa fa-check"></i><b>1.9.5</b> ¿Qué patrones requieren especial atención?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html"><i class="fa fa-check"></i><b>2</b> Preprocesamiento del EEG</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#qué-es-1"><i class="fa fa-check"></i><b>2.1</b> ¿Qué es?</a></li>
+<li class="chapter" data-level="2.2" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#antes-de-registrar"><i class="fa fa-check"></i><b>2.2</b> Antes de registrar</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#triggers"><i class="fa fa-check"></i><b>2.2.1</b> Triggers</a></li>
+<li class="chapter" data-level="2.2.2" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#tiempos-del-experimento"><i class="fa fa-check"></i><b>2.2.2</b> Tiempos del experimento</a></li>
+<li class="chapter" data-level="2.2.3" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#ensayos-electrodos-y-muestreo"><i class="fa fa-check"></i><b>2.2.3</b> Ensayos, electrodos y muestreo</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#epoquear"><i class="fa fa-check"></i><b>2.3</b> Epoquear</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#el-tiempo-0"><i class="fa fa-check"></i><b>2.3.1</b> El tiempo 0</a></li>
+<li class="chapter" data-level="2.3.2" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#efectos-de-borde"><i class="fa fa-check"></i><b>2.3.2</b> Efectos de borde</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#número-de-ensayos"><i class="fa fa-check"></i><b>2.4</b> Número de ensayos</a></li>
+<li class="chapter" data-level="2.5" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#filtros-temporal"><i class="fa fa-check"></i><b>2.5</b> Filtros temporal</a></li>
+<li class="chapter" data-level="2.6" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#rechazo-de-artefactos"><i class="fa fa-check"></i><b>2.6</b> Rechazo de artefactos</a></li>
+<li class="chapter" data-level="2.7" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#referencia"><i class="fa fa-check"></i><b>2.7</b> Referencia</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#qué-considerar"><i class="fa fa-check"></i><b>2.7.1</b> ¿Qué considerar?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#electrodos-defectuosos"><i class="fa fa-check"></i><b>2.8</b> Electrodos defectuosos</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#qué-limitación-tiene"><i class="fa fa-check"></i><b>2.8.1</b> ¿Qué limitación tiene?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#filtrado-espacial"><i class="fa fa-check"></i><b>2.9</b> Filtrado espacial</a></li>
+<li class="chapter" data-level="2.10" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#artefactos-e-ica"><i class="fa fa-check"></i><b>2.10</b> Artefactos e ICA</a>
+<ul>
+<li class="chapter" data-level="2.10.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#cómo-identificar-un-componente-artefactual"><i class="fa fa-check"></i><b>2.10.1</b> ¿Cómo identificar un componente artefactual?</a></li>
+<li class="chapter" data-level="2.10.2" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#limitaciones-2"><i class="fa fa-check"></i><b>2.10.2</b> Limitaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#parpadeos"><i class="fa fa-check"></i><b>2.11</b> Parpadeos</a>
+<ul>
+<li class="chapter" data-level="2.11.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#pedir-que-no-parpadeen"><i class="fa fa-check"></i><b>2.11.1</b> ¿Pedir que no parpadeen?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#movimientos-oculares"><i class="fa fa-check"></i><b>2.12</b> Movimientos oculares</a></li>
+<li class="chapter" data-level="2.13" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#actividad-muscular"><i class="fa fa-check"></i><b>2.13</b> Actividad muscular</a></li>
+<li class="chapter" data-level="2.14" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#conducta-y-validez-de-los-ensayos"><i class="fa fa-check"></i><b>2.14</b> Conducta y validez de los ensayos</a>
+<ul>
+<li class="chapter" data-level="2.14.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#errores-parciales"><i class="fa fa-check"></i><b>2.14.1</b> Errores parciales</a></li>
+</ul></li>
+<li class="chapter" data-level="2.15" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#reducir-artefactos-durante-el-registro"><i class="fa fa-check"></i><b>2.15</b> Reducir artefactos durante el registro</a></li>
+<li class="chapter" data-level="2.16" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#primera-revisión-en-el-dominio-temporal"><i class="fa fa-check"></i><b>2.16</b> Primera revisión en el dominio temporal</a>
+<ul>
+<li class="chapter" data-level="2.16.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#cuidado-con-el-filtrado-de-erps"><i class="fa fa-check"></i><b>2.16.1</b> Cuidado con el filtrado de ERPs</a></li>
+</ul></li>
+<li class="chapter" data-level="2.17" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#qué-debe-quedar-documentado"><i class="fa fa-check"></i><b>2.17</b> Qué debe quedar documentado</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html"><i class="fa fa-check"></i><b>3</b> Registro del EEG</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#conceptos-importantes-1"><i class="fa fa-check"></i><b>3.1</b> Conceptos importantes</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#el-equipo-de-registro"><i class="fa fa-check"></i><b>3.1.1</b> El equipo de registro</a></li>
+<li class="chapter" data-level="3.1.2" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#qué-se-registra"><i class="fa fa-check"></i><b>3.1.2</b> Qué se registra?</a></li>
+<li class="chapter" data-level="3.1.3" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#electrodos-referencia-y-tierra"><i class="fa fa-check"></i><b>3.1.3</b> Electrodos, referencia y tierra</a></li>
+<li class="chapter" data-level="3.1.4" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#impedancia-y-ruido"><i class="fa fa-check"></i><b>3.1.4</b> Impedancia y ruido</a></li>
+<li class="chapter" data-level="3.1.5" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#artefactos-comunes"><i class="fa fa-check"></i><b>3.1.5</b> Artefactos comunes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#antedentes-del-estudio"><i class="fa fa-check"></i><b>3.2</b> Antedentes del estudio</a></li>
+<li class="chapter" data-level="3.3" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#preparación-del-registro"><i class="fa fa-check"></i><b>3.3</b> Preparación del registro</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#varios-días-antes"><i class="fa fa-check"></i><b>3.3.1</b> Varios días antes</a></li>
+<li class="chapter" data-level="3.3.2" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#días-antes"><i class="fa fa-check"></i><b>3.3.2</b> 2–3 días antes</a></li>
+<li class="chapter" data-level="3.3.3" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#día-antes"><i class="fa fa-check"></i><b>3.3.3</b> 1 día antes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#registro-día-d"><i class="fa fa-check"></i><b>3.4</b> Registro (día D)</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Plataforma2 de usuarios locos por las ondas EEG</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="preprocesamiento-del-eeg" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Capítulo 2</span> Preprocesamiento del EEG<a href="preprocesamiento-del-eeg.html#preprocesamiento-del-eeg" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="qué-es-1" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> ¿Qué es?<a href="preprocesamiento-del-eeg.html#qué-es-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>El preprocesamiento comprende las transformaciones y reorganizaciones que hacemos de los datos crudos.</strong></p>
+<ul>
+<li>Algunas operaciones <strong>organizan</strong> los datos: recortar épocas alrededor de un evento.</li>
+<li>Otras <strong>eliminan</strong> datos contaminados: rechazar ensayos o retirar electrodos defectuosos.</li>
+<li>Otras <strong>transforman</strong> la señal: filtrar, cambiar la referencia o retirar componentes mediante ICA.</li>
+</ul>
+<p><strong>No hay una receta única.</strong> Las decisiones dependen del experimento, del equipo y de los análisis que queremos realizar.</p>
+<ul>
+<li>Debes aplicar los mismos procedimientos a las distintas condiciones. Evita que haya diferencias introducidas por el procesamiento!</li>
+<li>Registra las decisiones que hiciste para cada parte de tu pre-procesamiento (ensayos rechazados, electrodos interpolados y componentes retirados). Esto te permmite reproducir tu análisis.</li>
+</ul>
+</div>
+<div id="antes-de-registrar" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Antes de registrar<a href="preprocesamiento-del-eeg.html#antes-de-registrar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Un buen análisis no compensa un experimento mal diseñado.</strong></p>
+<ul>
+<li>Discute el diseño y pide a otras personas que realicen la tarea.</li>
+<li>Pilotea tu tarea y chequea los resultados conductuales. Comprueba que la tarea funciona como se espera.</li>
+<li>Registra EEG de 1 o 2 participantes y realiza un análisis completo, testeando las hipótesis principales.</li>
+<li>Corrige los problemas antes de comenzar la recolección definitiva.</li>
+</ul>
+<div id="triggers" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Triggers<a href="preprocesamiento-del-eeg.html#triggers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Los marcadores o triggers indican cuándo ocurrió cada evento y permiten relacionarlo con el EEG.</strong></p>
+<ul>
+<li>Deben permitir identificar estímulos, condiciones y respuestas.</li>
+<li>Es más fácil agrupar códigos durante el análisis que reconstruir información que nunca se registró.</li>
+<li>Hay que comprobar que los códigos y sus tiempos se recuperan correctamente del archivo EEG.
+<ul>
+<li>Un marcador demasiado breve puede no ser detectado por el sistema.</li>
+<li>Marcadores demasiado largos o simultáneos pueden superponerse y perderse.</li>
+</ul></li>
+</ul>
+<p><strong>Sin marcadores correctos, podemos alinear la señal al evento equivocado o asignar ensayos a condiciones incorrectas.</strong></p>
+<p>Tarea de imitación-inhibición (esquema de triggers)
+<img src="docs/images/triggers_IMIT_triggers.jpg" width="75%" style="display: block; margin: auto;" /></p>
+<p>Tarea de imitación-inhibición (triggers en el registro)
+<img src="docs/images/triggers.jpeg" width="100%" style="display: block; margin: auto;" /></p>
+<p>Tarea Go/No-Go (esquema de triggers)
+<img src="docs/images/triggers_GNG_triggers.jpg" width="90%" style="display: block; margin: auto;" /></p>
+<p>Tarea de Stroop emocional (esquema de triggers, versión 1)
+<img src="docs/images/triggers_EMO_STROOP_1_triggers.jpg" width="90%" style="display: block; margin: auto;" /></p>
+<p>Tarea de Stroop emocional (esquema de triggers, versión 2)
+<img src="docs/images/triggers_EMO_STROOP_2_triggers.jpg" width="90%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tiempos-del-experimento" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Tiempos del experimento<a href="preprocesamiento-del-eeg.html#tiempos-del-experimento" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Hay que considerar que la respuesta cerebral a un evento puede continuar después de que el estímulo termine</p></li>
+<li><p>El análisis TF utiliza un intervalo de señal alrededor de cada instante para estimar la actividad. Por eso, una respuesta breve puede aparecer más extendida en el tiempo y resulta más difícil precisar cuándo comienza y termina.</p></li>
+<li><p>Si los eventos están muy próximos, sus respuestas pueden superponerse.</p></li>
+<li><p>Conviene pilotear con intervalos amplios cuando no sabemos cuánto dura la respuesta de interés.</p></li>
+<li><p>El intervalo entre ensayos debe considerar la <strong>línea base</strong> y las <strong>frecuencias que se analizarán</strong>.</p>
+<ul>
+<li>En TF, el suavizado puede extender actividad posterior al estímulo hacia el período previo.</li>
+<li>Es bueno separar la línea base del inicio del estímulo. Ej: usar −500 a −200 ms.</li>
+</ul></li>
+</ul>
+<p>Tarea de imitación-inhibición
+<img src="docs/images/tarea_IMIT.jpg" width="90%" style="display: block; margin: auto;" /></p>
+<ul>
+<li>Los intervalos fijos y variables tienen consecuencias:
+<ul>
+<li><strong>Intervalos fijos:</strong> permiten anticipar el siguiente ensayo y prepararse.</li>
+<li><strong>Intervalos variables:</strong> también generan expectativas temporales, que cambian según cuánto se ha esperado.</li>
+</ul></li>
+</ul>
+</div>
+<div id="ensayos-electrodos-y-muestreo" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Ensayos, electrodos y muestreo<a href="preprocesamiento-del-eeg.html#ensayos-electrodos-y-muestreo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Número de ensayos:</strong> depende de la relación señal/ruido, el tamaño del efecto y el análisis.
+<ul>
+<li>Se ha propuesto que alrededor de 50 ensayos por condición y participante está OK.</li>
+</ul></li>
+<li><strong>Número de electrodos:</strong> depende de las inferencias que queremos hacer.
+<ul>
+<li>Una medición ERP localizada requiere menos cobertura que una reconstrucción de fuentes.</li>
+<li>Tener al menos 64 electrodos cuando sea posible es un buen compromiso.</li>
+</ul></li>
+<li><strong>Frecuencia de muestreo:</strong> debe permitir representar las frecuencias de interés.
+<ul>
+<li>Solo pueden recuperarse frecuencias por debajo de la mitad de la frecuencia de muestreo.</li>
+<li>En la práctica, se recomienda muestrear por encima de ese mínimo, especialmente para estimar fase.</li>
+<li>Para muchos análisis un rango útil es 500–2000 Hz (más alto &gt; mayor tamaño de los archivos y tiempo de procesamiento).</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="epoquear" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Epoquear<a href="preprocesamiento-del-eeg.html#epoquear" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Una época es un segmento del EEG continuo recortado alrededor de un evento.</strong></p>
+<ul>
+<li>Antes de segmentar: datos organizados por <strong>electrodo × tiempo</strong>.</li>
+<li>Después de segmentar: datos organizados por <strong>electrodo × tiempo × ensayo</strong>.</li>
+</ul>
+<div id="el-tiempo-0" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> El tiempo 0<a href="preprocesamiento-del-eeg.html#el-tiempo-0" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Puede ser el inicio del estímulo, una respuesta u otro evento de interés.</li>
+<li>La elección debe corresponder a la pregunta que queremos responder.</li>
+<li>Si interesa tanto el estímulo como la respuesta, deben conservarse ambos eventos y suficiente señal alrededor de ellos.</li>
+<li>Los datos pueden realinearse durante el análisis si esos eventos y períodos están incluidos en las épocas.</li>
+</ul>
+<p>Tarea de imitación-inhibición (epoqueado al comienzo del estímulo)
+<img src="docs/images/tarea_IMIT_epocas_1.jpg" width="90%" style="display: block; margin: auto;" /></p>
+<p>Tarea de imitación-inhibición (epoqueado al comienzo de la respuesta)
+<img src="docs/images/tarea_IMIT_epocas_2.jpg" width="90%" style="display: block; margin: auto;" /></p>
+<p>En reposo no es necesario alinear los datos a estímulos, pero se pueden dividir en segmentos de varios segundos para facilitar el análisis.</p>
+</div>
+<div id="efectos-de-borde" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Efectos de borde<a href="preprocesamiento-del-eeg.html#efectos-de-borde" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Para TF necesitamos más señal que la ventana que finalmente queremos interpretar.</strong></p>
+<ul>
+<li>Los extremos de una época introducen discontinuidades que pueden generar <strong>efectos de borde</strong> al aplicar filtros o descomposición TF.</li>
+<li>Por eso se incluyen márgenes temporales antes y después del período de interés.</li>
+<li>Esos márgenes se descartan después de la descomposición.</li>
+<li>Las frecuencias bajas requieren márgenes más largos.</li>
+</ul>
+<p>Ejemplos:</p>
+<ul>
+<li>Para analizar de 0 a 1000 ms, se podrían extraer épocas de −1500 a +2500 ms.</li>
+<li>Una formula es usar 3 ciclos de la frecuencia más baja como orientación inicial: a 2 Hz, tres ciclos duran 1500 ms.</li>
+<li>El margen necesario depende del método y de la magnitud de las discontinuidades; hay que revisar los resultados.</li>
+</ul>
+</div>
+</div>
+<div id="número-de-ensayos" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Número de ensayos<a href="preprocesamiento-del-eeg.html#número-de-ensayos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Una diferencia en el número de ensayos (trials) puede afectar las estimaciones y su comparabilidad.</strong></p>
+<ul>
+<li>Las medidas basadas en fase son especialmente sensibles: pocos ensayos pueden introducir un sesgo positivo.</li>
+<li>En los ERPs, pocos ensayos reducen la relación señal/ruido y aumentan la influencia de valores extremos.</li>
+<li>Diferencias pequeñas, como 84 frente a 87 ensayos, no plantean el mismo problema que 84 frente a 23.</li>
+</ul>
+</div>
+<div id="filtros-temporal" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Filtros temporal<a href="preprocesamiento-del-eeg.html#filtros-temporal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Los filtros atenúan determinados rangos de frecuencia y modifican la señal.</strong></p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Filtro</th>
+<th align="left">¿Qué atenúa?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">High-pass</td>
+<td align="left">Fluctuaciones lentas por debajo del rango que se conserva.</td>
+</tr>
+<tr class="even">
+<td align="left">Low-pass</td>
+<td align="left">Actividad rápida por encima del rango que se conserva.</td>
+</tr>
+<tr class="odd">
+<td align="left">Notch</td>
+<td align="left">Una banda estrecha, por ejemplo alrededor de 50 o 60 Hz.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>La elección depende de las frecuencias y procesos que queremos estudiar.</li>
+<li>Se ha propuesto un high-pass de 0.1 o 0.5 Hz para reducir derivas lentas, aplicados sobre datos continuos.
+<ul>
+<li>Aplicarlos a épocas cortas puede introducir efectos de borde que ocupen gran parte de la época.</li>
+</ul></li>
+<li>Muchos métodos TF ya realizan un filtrado por frecuencias.
+<ul>
+<li>Si solo extraeremos actividad entre 2 y 20 Hz, un low-pass previo a 40 Hz no es necesario.</li>
+</ul></li>
+</ul>
+<p><strong>Filtrar más no significa limpiar mejor.</strong> Un filtro puede eliminar actividad de interés, reducir la precisión temporal o introducir oscilaciones artificiales.</p>
+</div>
+<div id="rechazo-de-artefactos" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Rechazo de artefactos<a href="preprocesamiento-del-eeg.html#rechazo-de-artefactos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Se eliminan ensayos cuya contaminación impide utilizarlos adecuadamente en el análisis.</strong></p>
+<ul>
+<li>Algunos rechazos son claros; otros dependen del balance entre conservar señal y reducir ruido.</li>
+<li>Hay dos enfoques principales:
+<ul>
+<li><strong>Inspección visual:</strong> permite examinar patrones que un criterio automático podría pasar por alto, pero depende del juicio del investigador.</li>
+<li><strong>Rechazo automático:</strong> es rápido y reproducible, pero puede descartar ensayos válidos o conservar artefactos si los criterios no se ajustan a los datos.</li>
+</ul></li>
+<li>Cohen expresa su preferencia por la inspección visual; no la presenta como una solución universal.</li>
+</ul>
+<p><strong>En TF, las discontinuidades bruscas merecen especial atención:</strong> incluso un salto pequeño puede producir efectos importantes al descomponer la señal.</p>
+</div>
+<div id="referencia" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Referencia<a href="preprocesamiento-del-eeg.html#referencia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Todos los voltajes EEG se expresan respecto de una referencia.</strong></p>
+<ul>
+<li>La actividad presente en la referencia se refleja en los otros canales.</li>
+<li>Una referencia ruidosa puede contaminar todo el registro.</li>
+<li>Entre las opciones existe: promedio de mastoides, el promedio de lóbulos de las orejas y la referencia promedio.</li>
+<li>Ninguna referencia es eléctricamente neutra ni adecuada para todas las preguntas.</li>
+</ul>
+<div id="qué-considerar" class="section level3 hasAnchor" number="2.7.1">
+<h3><span class="header-section-number">2.7.1</span> ¿Qué considerar?<a href="preprocesamiento-del-eeg.html#qué-considerar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>El número y la distribución de electrodos.</li>
+<li>Los análisis y la localización esperada de los efectos.</li>
+<li>Evitar que la referencia esté cerca del efecto principal: por ejemplo, Cz puede ser una mala elección si interesa una respuesta máxima en Cz o FCz.</li>
+<li>Una referencia unilateral puede introducir asimetrías en los datos.</li>
+</ul>
+<p>La referencia puede cambiarse después del registro. Aun así, hay que conocer cuál se utilizó durante la adquisición y comprobar su calidad.</p>
+</div>
+</div>
+<div id="electrodos-defectuosos" class="section level2 hasAnchor" number="2.8">
+<h2><span class="header-section-number">2.8</span> Electrodos defectuosos<a href="preprocesamiento-del-eeg.html#electrodos-defectuosos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Interpolar consiste en estimar la señal de un electrodo a partir de otros electrodos y sus posiciones.</strong></p>
+<ul>
+<li>Puede ser necesario cuando un canal está plano o registra principalmente ruido.</li>
+<li>Antes de interpolar, hay que comprobar si contiene señal cerebral recuperable.</li>
+<li>Si el problema se detecta durante el registro, es preferible corregirlo en ese momento.</li>
+</ul>
+<div id="qué-limitación-tiene" class="section level3 hasAnchor" number="2.8.1">
+<h3><span class="header-section-number">2.8.1</span> ¿Qué limitación tiene?<a href="preprocesamiento-del-eeg.html#qué-limitación-tiene" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>La señal interpolada es una estimación derivada de otros canales.</li>
+<li>No aporta información independiente y no recupera exactamente lo que habría registrado el electrodo.</li>
+<li>La interpolación introduce dependencias entre canales y puede afectar análisis que requieren una matriz de rango completo.</li>
+</ul>
+<p><strong>Un electrodo defectuoso no debe entrar sin revisión en operaciones que combinan canales</strong>, como la referencia promedio o ciertos filtros espaciales: su ruido puede propagarse a los demás.</p>
+</div>
+</div>
+<div id="filtrado-espacial" class="section level2 hasAnchor" number="2.9">
+<h2><span class="header-section-number">2.9</span> Filtrado espacial<a href="preprocesamiento-del-eeg.html#filtrado-espacial" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Combina información de distintos electrodos para modificar cómo se representa espacialmente la actividad.</strong></p>
+<p>Cohen distingue tres objetivos:</p>
+<ul>
+<li><p><strong>Ayudar a localizar un resultado.</strong> Por ejemplo, evaluar si una respuesta es compatible con una fuente motora.</p></li>
+<li><p><strong>Separar patrones que se superponen en el cuero cabelludo.</strong> Por ejemplo, respuestas occipitales y parietales.</p></li>
+<li><p><strong>Reducir efectos de conducción de volumen en algunos análisis de conectividad.</strong> Una misma fuente puede contribuir a varios electrodos y generar asociaciones que no reflejan interacción entre fuentes diferentes.</p></li>
+<li><p>Entre los métodos discutidos están el Laplaciano de superficie y la reconstrucción de fuentes.</p></li>
+<li><p>No todos los filtros espaciales resuelven los mismos problemas ni se aplican en la misma etapa.</p></li>
+<li><p>Por ejemplo, el Laplaciano utilizado antes de estimar conectividad se aplica a la señal temporal de los ensayos, antes de la descomposición TF.</p></li>
+</ul>
+</div>
+<div id="artefactos-e-ica" class="section level2 hasAnchor" number="2.10">
+<h2><span class="header-section-number">2.10</span> Artefactos e ICA<a href="preprocesamiento-del-eeg.html#artefactos-e-ica" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>ICA es una técnica que descompone la señal en componentes intentando separar fuentes estadísticamente independientes.</strong></p>
+<ul>
+<li>Cada componente es una combinación ponderada de los electrodos.</li>
+<li>Puede utilizarse para identificar componentes dominados por artefactos y retirar su contribución de los datos.</li>
+<li>También puede utilizarse para analizar directamente la actividad de los componentes.</li>
+</ul>
+<div id="cómo-identificar-un-componente-artefactual" class="section level3 hasAnchor" number="2.10.1">
+<h3><span class="header-section-number">2.10.1</span> ¿Cómo identificar un componente artefactual?<a href="preprocesamiento-del-eeg.html#cómo-identificar-un-componente-artefactual" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Se consideran conjuntamente:</p>
+<ul>
+<li><strong>Topografía:</strong> cómo se distribuyen sus pesos entre electrodos.</li>
+<li><strong>Curso temporal:</strong> cuándo aparecen sus variaciones y qué forma tienen.</li>
+<li><strong>Espectro:</strong> en qué frecuencias se concentra su actividad.</li>
+</ul>
+<p>Por ejemplo, un componente de parpadeo suele mostrar una distribución anterior y deflexiones grandes y breves en el tiempo.</p>
+</div>
+<div id="limitaciones-2" class="section level3 hasAnchor" number="2.10.2">
+<h3><span class="header-section-number">2.10.2</span> Limitaciones<a href="preprocesamiento-del-eeg.html#limitaciones-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>ICA se basa en propiedades estadísticas: <strong>no sabe qué es señal cerebral y qué es ruido</strong>.</li>
+<li>Un componente puede contener ambos.</li>
+<li>La ausencia de un ERP en un componente no demuestra que carezca de señal cerebral: podría contener actividad no ligada a la fase.</li>
+<li>Cohen propone retirar componentes solo cuando existe evidencia convincente de artefacto y poca o ninguna señal de interés.</li>
+</ul>
+<p><strong>Eliminar componentes de forma indiscriminada puede eliminar actividad cerebral.</strong></p>
+</div>
+</div>
+<div id="parpadeos" class="section level2 hasAnchor" number="2.11">
+<h2><span class="header-section-number">2.11</span> Parpadeos<a href="preprocesamiento-del-eeg.html#parpadeos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Corregir el artefacto eléctrico no garantiza que el ensayo sea válido para la pregunta experimental.</strong></p>
+<ul>
+<li>El artefacto del parpadeo se superpone a la señal cerebral y puede atenuarse mediante ICA u otros métodos.</li>
+<li>Sin embargo, un parpadeo durante un estímulo visual breve puede impedir que la persona lo vea.</li>
+<li>Un cierre prolongado de los ojos también puede indicar fatiga o falta de atención.</li>
+<li>La decisión de conservar el ensayo debe considerar el momento y la duración del parpadeo.</li>
+</ul>
+<div id="pedir-que-no-parpadeen" class="section level3 hasAnchor" number="2.11.1">
+<h3><span class="header-section-number">2.11.1</span> ¿Pedir que no parpadeen?<a href="preprocesamiento-del-eeg.html#pedir-que-no-parpadeen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Suprimir activamente los parpadeos puede exigir esfuerzo y distraer de la tarea.</li>
+<li>Concentrarlos en el intervalo entre ensayos puede contaminar la línea base.</li>
+<li>Pedir que parpadeen siempre al responder puede hacer que el parpadeo y la actividad de respuesta estén ligados temporalmente, dificultando su separación mediante ICA.</li>
+</ul>
+</div>
+</div>
+<div id="movimientos-oculares" class="section level2 hasAnchor" number="2.12">
+<h2><span class="header-section-number">2.12</span> Movimientos oculares<a href="preprocesamiento-del-eeg.html#movimientos-oculares" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Sacadas y microsacadas también pueden contaminar el EEG.</li>
+<li>Los electrodos EOG permiten detectar movimientos relativamente grandes; un sistema de seguimiento ocular ofrece mayor sensibilidad para movimientos pequeños.</li>
+<li>Estímulos centrales y una fijación visible pueden ayudar a reducir movimientos innecesarios, según la tarea.</li>
+<li>El impacto depende de la referencia, los electrodos y las frecuencias analizadas.</li>
+</ul>
+<p><strong>Si la tarea exige mantener la fijación, romperla puede invalidar un ensayo aunque se corrija el artefacto eléctrico.</strong></p>
+</div>
+<div id="actividad-muscular" class="section level2 hasAnchor" number="2.13">
+<h2><span class="header-section-number">2.13</span> Actividad muscular<a href="preprocesamiento-del-eeg.html#actividad-muscular" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>El EMG puede aparecer en los canales EEG y confundirse con actividad cerebral rápida.</strong></p>
+<ul>
+<li>Suele observarse como ráfagas rápidas, a menudo de gran amplitud y más marcadas cerca de cara, cuello y orejas.</li>
+<li>Es especialmente problemático para estudiar actividad beta y frecuencias superiores.</li>
+<li>Ráfagas intensas pueden acompañar movimientos, tos o tensión muscular y justificar el rechazo del ensayo.</li>
+<li>La contaminación continua exige valorar su distribución y los objetivos del análisis.</li>
+<li>Si se retira un componente muscular mediante ICA, hay que comprobar que no contenga también señal cerebral relevante.</li>
+</ul>
+</div>
+<div id="conducta-y-validez-de-los-ensayos" class="section level2 hasAnchor" number="2.14">
+<h2><span class="header-section-number">2.14</span> Conducta y validez de los ensayos<a href="preprocesamiento-del-eeg.html#conducta-y-validez-de-los-ensayos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Un ensayo puede tener una señal eléctrica limpia y, aun así, no representar el proceso que queremos estudiar.</strong></p>
+<p>Cohen llama a este problema ruido o artefactos cognitivos.</p>
+<ul>
+<li>Considerar separar respuestas correctas e incorrectas.</li>
+<li>Revisar omisiones, respuestas múltiples y tiempos de reacción inusualmente rápidos o lentos.</li>
+<li>Valorar ensayos posteriores a errores o pausas si introducen procesos ajenos a la pregunta.</li>
+<li>No excluir automáticamente una clase de ensayos: los errores o los cambios de regla pueden ser precisamente el fenómeno de interés.</li>
+</ul>
+<p><strong>Los criterios conductuales dependen de la tarea; no hay un único umbral de tiempo de reacción válido para todos los experimentos.</strong></p>
+<div id="errores-parciales" class="section level3 hasAnchor" number="2.14.1">
+<h3><span class="header-section-number">2.14.1</span> Errores parciales<a href="preprocesamiento-del-eeg.html#errores-parciales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Una persona puede activar brevemente la mano incorrecta y después pulsar correctamente con la otra.</li>
+<li>El registro conductual indica acierto, pero el EMG permite detectar esa activación incorrecta.</li>
+<li>Esos ensayos pueden presentar respuestas cerebrales parecidas a las de los errores.</li>
+<li>Según la pregunta, pueden separarse o analizarse como una categoría propia.</li>
+</ul>
+</div>
+</div>
+<div id="reducir-artefactos-durante-el-registro" class="section level2 hasAnchor" number="2.15">
+<h2><span class="header-section-number">2.15</span> Reducir artefactos durante el registro<a href="preprocesamiento-del-eeg.html#reducir-artefactos-durante-el-registro" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>La mejor forma de facilitar el preprocesamiento es comenzar con datos de buena calidad.</strong></p>
+<ul>
+<li>Mostrar al participante su EEG en tiempo real.</li>
+<li>Pedirle que parpadee, tense la mandíbula o mueva los hombros para observar cómo cambia la señal.</li>
+<li>Explicar qué comportamientos producen artefactos y cómo reducirlos sin desatender la tarea.</li>
+<li>Vigilar la señal durante la adquisición.</li>
+<li>Si aparece un problema persistente, pausar cuando sea posible y corregir su causa.</li>
+<li>Comprobar comodidad, postura y fatiga.</li>
+</ul>
+<p><strong>El preprocesamiento puede mejorar datos buenos; no convierte cualquier registro deficiente en datos de buena calidad.</strong></p>
+</div>
+<div id="primera-revisión-en-el-dominio-temporal" class="section level2 hasAnchor" number="2.16">
+<h2><span class="header-section-number">2.16</span> Primera revisión en el dominio temporal<a href="preprocesamiento-del-eeg.html#primera-revisión-en-el-dominio-temporal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Los ERPs y las representaciones temporales ayudan a comprobar la calidad de los datos, aunque el análisis principal sea TF.</strong></p>
+<ul>
+<li><strong>ERP por condición:</strong> alinear los ensayos y promediar el voltaje en cada instante.</li>
+<li><strong>Butterfly plot:</strong> superponer los ERPs de todos los electrodos para detectar canales o patrones anómalos.</li>
+<li><strong>Global field power:</strong> desviación estándar entre electrodos en cada instante; describe la dispersión espacial de los voltajes y no equivale al voltaje promedio.</li>
+<li><strong>Topografías a lo largo del tiempo:</strong> revisar la distribución de las respuestas y detectar electrodos problemáticos.</li>
+<li><strong>ERP image:</strong> mostrar los ensayos de un electrodo como filas, con el voltaje representado por colores; permite observar información que se pierde en el promedio.</li>
+</ul>
+<div id="cuidado-con-el-filtrado-de-erps" class="section level3 hasAnchor" number="2.16.1">
+<h3><span class="header-section-number">2.16.1</span> Cuidado con el filtrado de ERPs<a href="preprocesamiento-del-eeg.html#cuidado-con-el-filtrado-de-erps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Un pasa-bajos puede reducir fluctuaciones rápidas residuales y facilitar la inspección.</li>
+<li>También reduce precisión temporal y puede modificar componentes.</li>
+<li>Un filtro mal diseñado puede producir ondulaciones artificiales.</li>
+<li>Una curva más suave no es necesariamente una representación más fiel de los datos.</li>
+</ul>
+</div>
+</div>
+<div id="qué-debe-quedar-documentado" class="section level2 hasAnchor" number="2.17">
+<h2><span class="header-section-number">2.17</span> Qué debe quedar documentado<a href="preprocesamiento-del-eeg.html#qué-debe-quedar-documentado" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Evento utilizado como tiempo cero, duración de las épocas y márgenes temporales.</li>
+<li>Filtros y parámetros aplicados.</li>
+<li>Referencia utilizada.</li>
+<li>Electrodos retirados o interpolados.</li>
+<li>Componentes retirados mediante ICA y criterios utilizados.</li>
+<li>Ensayos excluidos por artefactos o conducta.</li>
+<li>Cantidad final de ensayos por condición y cualquier procedimiento para igualarla.</li>
+</ul>
+<p><strong>Estas decisiones deben permitir reconstruir el resultado a partir de los datos originales.</strong></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="electrofisiología-cognitiva.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="registro-del-eeg.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/joseluisulloafulgeri/pulpo_eeg/edit/main/02-preproc.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/joseluisulloafulgeri/pulpo_eeg/blob/main/02-preproc.Rmd",
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

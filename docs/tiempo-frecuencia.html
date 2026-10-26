@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 3 Tiempo-frecuencia | Plataforma2 de usuarios locos por las ondas EEG</title>
+  <meta name="description" content="Capítulo 3 Tiempo-frecuencia | Plataforma2 de usuarios locos por las ondas EEG" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 3 Tiempo-frecuencia | Plataforma2 de usuarios locos por las ondas EEG" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 3 Tiempo-frecuencia | Plataforma2 de usuarios locos por las ondas EEG" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="preprocesamiento-del-eeg.html"/>
+<link rel="next" href="registro-del-eeg.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Pulpo-EEG</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preámbulo</a></li>
+<li class="chapter" data-level="1" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html"><i class="fa fa-check"></i><b>1</b> Electrofisiología cognitiva</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#qué-es"><i class="fa fa-check"></i><b>1.1</b> ¿Qué es?</a></li>
+<li class="chapter" data-level="1.2" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#qué-se-registra-con-eeg"><i class="fa fa-check"></i><b>1.2</b> ¿Qué se registra con EEG?</a></li>
+<li class="chapter" data-level="1.3" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#para-qué-usar-el-eeg"><i class="fa fa-check"></i><b>1.3</b> ¿Para qué usar el EEG?</a></li>
+<li class="chapter" data-level="1.4" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#cuándo-no-es-adecuado"><i class="fa fa-check"></i><b>1.4</b> ¿Cuándo no es adecuado?</a></li>
+<li class="chapter" data-level="1.5" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#erps"><i class="fa fa-check"></i><b>1.5</b> ERPs</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#ventajas"><i class="fa fa-check"></i><b>1.5.1</b> Ventajas</a></li>
+<li class="chapter" data-level="1.5.2" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#limitaciones"><i class="fa fa-check"></i><b>1.5.2</b> Limitaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#análisis-tf"><i class="fa fa-check"></i><b>1.6</b> Análisis TF</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#ventajas-1"><i class="fa fa-check"></i><b>1.6.1</b> Ventajas</a></li>
+<li class="chapter" data-level="1.6.2" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#limitaciones-1"><i class="fa fa-check"></i><b>1.6.2</b> Limitaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#conceptos-importantes"><i class="fa fa-check"></i><b>1.7</b> Conceptos importantes</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#en-el-tiempo"><i class="fa fa-check"></i><b>1.7.1</b> En el tiempo</a></li>
+<li class="chapter" data-level="1.7.2" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#en-el-espacio"><i class="fa fa-check"></i><b>1.7.2</b> En el espacio</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#topografías"><i class="fa fa-check"></i><b>1.8</b> Topografías</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#localización-topográfica-y-localización-cerebral"><i class="fa fa-check"></i><b>1.8.1</b> Localización topográfica y localización cerebral</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#lo-que-importa-en-tf"><i class="fa fa-check"></i><b>1.9</b> Lo que importa en TF</a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#frecuencia-potencia-y-fase"><i class="fa fa-check"></i><b>1.9.1</b> Frecuencia, potencia y fase</a></li>
+<li class="chapter" data-level="1.9.2" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#compromiso-entre-precisión-temporal-y-frecuencial"><i class="fa fa-check"></i><b>1.9.2</b> Compromiso entre precisión temporal y frecuencial</a></li>
+<li class="chapter" data-level="1.9.3" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#los-datos-tf"><i class="fa fa-check"></i><b>1.9.3</b> Los datos TF</a></li>
+<li class="chapter" data-level="1.9.4" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#cómo-leer-un-mapa-tiempo-frecuencia"><i class="fa fa-check"></i><b>1.9.4</b> Cómo leer un mapa tiempo-frecuencia</a></li>
+<li class="chapter" data-level="1.9.5" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#qué-patrones-requieren-especial-atención"><i class="fa fa-check"></i><b>1.9.5</b> ¿Qué patrones requieren especial atención?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html"><i class="fa fa-check"></i><b>2</b> Preprocesamiento del EEG</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#qué-es-1"><i class="fa fa-check"></i><b>2.1</b> ¿Qué es?</a></li>
+<li class="chapter" data-level="2.2" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#antes-de-registrar"><i class="fa fa-check"></i><b>2.2</b> Antes de registrar</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#triggers"><i class="fa fa-check"></i><b>2.2.1</b> Triggers</a></li>
+<li class="chapter" data-level="2.2.2" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#tiempos-del-experimento"><i class="fa fa-check"></i><b>2.2.2</b> Tiempos del experimento</a></li>
+<li class="chapter" data-level="2.2.3" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#ensayos-electrodos-y-muestreo"><i class="fa fa-check"></i><b>2.2.3</b> Ensayos, electrodos y muestreo</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#epoquear"><i class="fa fa-check"></i><b>2.3</b> Epoquear</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#el-tiempo-0"><i class="fa fa-check"></i><b>2.3.1</b> El tiempo 0</a></li>
+<li class="chapter" data-level="2.3.2" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#efectos-de-borde"><i class="fa fa-check"></i><b>2.3.2</b> Efectos de borde</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#número-de-ensayos"><i class="fa fa-check"></i><b>2.4</b> Número de ensayos</a></li>
+<li class="chapter" data-level="2.5" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#filtros-temporal"><i class="fa fa-check"></i><b>2.5</b> Filtros temporal</a></li>
+<li class="chapter" data-level="2.6" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#rechazo-de-artefactos"><i class="fa fa-check"></i><b>2.6</b> Rechazo de artefactos</a></li>
+<li class="chapter" data-level="2.7" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#referencia"><i class="fa fa-check"></i><b>2.7</b> Referencia</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#qué-considerar"><i class="fa fa-check"></i><b>2.7.1</b> ¿Qué considerar?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#electrodos-defectuosos"><i class="fa fa-check"></i><b>2.8</b> Electrodos defectuosos</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#qué-limitación-tiene"><i class="fa fa-check"></i><b>2.8.1</b> ¿Qué limitación tiene?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#filtrado-espacial"><i class="fa fa-check"></i><b>2.9</b> Filtrado espacial</a></li>
+<li class="chapter" data-level="2.10" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#artefactos-e-ica"><i class="fa fa-check"></i><b>2.10</b> Artefactos e ICA</a>
+<ul>
+<li class="chapter" data-level="2.10.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#componentes-artefactuales"><i class="fa fa-check"></i><b>2.10.1</b> Componentes artefactuales</a></li>
+<li class="chapter" data-level="2.10.2" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#limitaciones-2"><i class="fa fa-check"></i><b>2.10.2</b> Limitaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#parpadeos"><i class="fa fa-check"></i><b>2.11</b> Parpadeos</a>
+<ul>
+<li class="chapter" data-level="2.11.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#pedir-que-no-parpadeen"><i class="fa fa-check"></i><b>2.11.1</b> ¿Pedir que no parpadeen?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#movimientos-oculares"><i class="fa fa-check"></i><b>2.12</b> Movimientos oculares</a></li>
+<li class="chapter" data-level="2.13" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#actividad-muscular"><i class="fa fa-check"></i><b>2.13</b> Actividad muscular</a>
+<ul>
+<li class="chapter" data-level="2.13.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#errores-parciales"><i class="fa fa-check"></i><b>2.13.1</b> Errores parciales</a></li>
+</ul></li>
+<li class="chapter" data-level="2.14" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#un-buen-registro"><i class="fa fa-check"></i><b>2.14</b> Un buen registro</a></li>
+<li class="chapter" data-level="2.15" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#sanity-checks"><i class="fa fa-check"></i><b>2.15</b> Sanity-checks</a></li>
+<li class="chapter" data-level="2.16" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#documentar"><i class="fa fa-check"></i><b>2.16</b> Documentar</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html"><i class="fa fa-check"></i><b>3</b> Tiempo-frecuencia</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#qué-buscamos-con-tf"><i class="fa fa-check"></i><b>3.1</b> ¿Qué buscamos con TF?</a></li>
+<li class="chapter" data-level="3.2" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#producto-punto"><i class="fa fa-check"></i><b>3.2</b> Producto punto</a></li>
+<li class="chapter" data-level="3.3" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#convolución"><i class="fa fa-check"></i><b>3.3</b> Convolución</a></li>
+<li class="chapter" data-level="3.4" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#transformada-de-fourier"><i class="fa fa-check"></i><b>3.4</b> Transformada de Fourier</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#qué-nos-dice-y-qué-no"><i class="fa fa-check"></i><b>3.4.1</b> ¿Qué nos dice y qué no?</a></li>
+<li class="chapter" data-level="3.4.2" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#duración-y-frecuencias"><i class="fa fa-check"></i><b>3.4.2</b> Duración y frecuencias</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#wavelets-de-morlet"><i class="fa fa-check"></i><b>3.5</b> Wavelets de Morlet</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#número-de-ciclos"><i class="fa fa-check"></i><b>3.5.1</b> Número de ciclos</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#fft-en-ventanas-cortas"><i class="fa fa-check"></i><b>3.6</b> FFT en ventanas cortas</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#qué-se-elige"><i class="fa fa-check"></i><b>3.6.1</b> ¿Qué se elige?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#multitaper"><i class="fa fa-check"></i><b>3.7</b> Multitaper</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#ventajas-y-límites"><i class="fa fa-check"></i><b>3.7.1</b> Ventajas y límites</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#potencia-y-fase"><i class="fa fa-check"></i><b>3.8</b> Potencia y fase</a></li>
+<li class="chapter" data-level="3.9" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#escala-de-potencia"><i class="fa fa-check"></i><b>3.9</b> Escala de potencia</a></li>
+<li class="chapter" data-level="3.10" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#línea-base"><i class="fa fa-check"></i><b>3.10</b> Línea base</a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#decibeles"><i class="fa fa-check"></i><b>3.10.1</b> Decibeles</a></li>
+<li class="chapter" data-level="3.10.2" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#otras-transformaciones"><i class="fa fa-check"></i><b>3.10.2</b> Otras transformaciones</a></li>
+<li class="chapter" data-level="3.10.3" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#cómo-elegir-el-período"><i class="fa fa-check"></i><b>3.10.3</b> ¿Cómo elegir el período?</a></li>
+<li class="chapter" data-level="3.10.4" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#una-línea-base-por-condición-o-una-común"><i class="fa fa-check"></i><b>3.10.4</b> ¿Una línea base por condición o una común?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#itpc"><i class="fa fa-check"></i><b>3.11</b> ITPC</a>
+<ul>
+<li class="chapter" data-level="3.11.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#por-qué-no-promediar-directamente-los-ángulos"><i class="fa fa-check"></i><b>3.11.1</b> ¿Por qué no promediar directamente los ángulos?</a></li>
+<li class="chapter" data-level="3.11.2" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#cómo-se-calcula"><i class="fa fa-check"></i><b>3.11.2</b> ¿Cómo se calcula?</a></li>
+<li class="chapter" data-level="3.11.3" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#qué-debemos-cuidar"><i class="fa fa-check"></i><b>3.11.3</b> ¿Qué debemos cuidar?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.12" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#conectividad"><i class="fa fa-check"></i><b>3.12</b> Conectividad</a></li>
+<li class="chapter" data-level="3.13" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#ispc"><i class="fa fa-check"></i><b>3.13</b> ISPC</a>
+<ul>
+<li class="chapter" data-level="3.13.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#qué-significa-un-valor-alto"><i class="fa fa-check"></i><b>3.13.1</b> ¿Qué significa un valor alto?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.14" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#ispc-time"><i class="fa fa-check"></i><b>3.14</b> ISPC-time</a>
+<ul>
+<li class="chapter" data-level="3.14.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#ventajas-y-límites-1"><i class="fa fa-check"></i><b>3.14.1</b> Ventajas y límites</a></li>
+</ul></li>
+<li class="chapter" data-level="3.15" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#ispc-trials"><i class="fa fa-check"></i><b>3.15</b> ISPC-trials</a>
+<ul>
+<li class="chapter" data-level="3.15.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#ventajas-y-límites-2"><i class="fa fa-check"></i><b>3.15.1</b> Ventajas y límites</a></li>
+<li class="chapter" data-level="3.15.2" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#un-ejemplo-para-distinguirlas"><i class="fa fa-check"></i><b>3.15.2</b> Un ejemplo para distinguirlas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.16" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#precauciones"><i class="fa fa-check"></i><b>3.16</b> Precauciones</a>
+<ul>
+<li class="chapter" data-level="3.16.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#conducción-de-volumen"><i class="fa fa-check"></i><b>3.16.1</b> Conducción de volumen</a></li>
+<li class="chapter" data-level="3.16.2" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#cantidad-de-datos-potencia-y-línea-base"><i class="fa fa-check"></i><b>3.16.2</b> Cantidad de datos, potencia y línea base</a></li>
+</ul></li>
+<li class="chapter" data-level="3.17" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#conectividad-en-poder"><i class="fa fa-check"></i><b>3.17</b> Conectividad en poder</a>
+<ul>
+<li class="chapter" data-level="3.17.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#cómo-se-interpreta"><i class="fa fa-check"></i><b>3.17.1</b> ¿Cómo se interpreta?</a></li>
+<li class="chapter" data-level="3.17.2" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#pearson-o-spearman"><i class="fa fa-check"></i><b>3.17.2</b> Pearson o Spearman</a></li>
+</ul></li>
+<li class="chapter" data-level="3.18" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#correlación-de-poder-tiempo"><i class="fa fa-check"></i><b>3.18</b> Correlación de poder (tiempo)</a></li>
+<li class="chapter" data-level="3.19" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#correlación-de-poder-ensayos"><i class="fa fa-check"></i><b>3.19</b> Correlación de poder (ensayos)</a></li>
+<li class="chapter" data-level="3.20" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#limitaciones-3"><i class="fa fa-check"></i><b>3.20</b> Limitaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html"><i class="fa fa-check"></i><b>4</b> Registro del EEG</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#conceptos-importantes-1"><i class="fa fa-check"></i><b>4.1</b> Conceptos importantes</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#el-equipo-de-registro"><i class="fa fa-check"></i><b>4.1.1</b> El equipo de registro</a></li>
+<li class="chapter" data-level="4.1.2" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#qué-se-registra"><i class="fa fa-check"></i><b>4.1.2</b> Qué se registra?</a></li>
+<li class="chapter" data-level="4.1.3" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#electrodos-referencia-y-tierra"><i class="fa fa-check"></i><b>4.1.3</b> Electrodos, referencia y tierra</a></li>
+<li class="chapter" data-level="4.1.4" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#impedancia-y-ruido"><i class="fa fa-check"></i><b>4.1.4</b> Impedancia y ruido</a></li>
+<li class="chapter" data-level="4.1.5" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#artefactos-comunes"><i class="fa fa-check"></i><b>4.1.5</b> Artefactos comunes</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#antedentes-del-estudio"><i class="fa fa-check"></i><b>4.2</b> Antedentes del estudio</a></li>
+<li class="chapter" data-level="4.3" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#preparación-del-registro"><i class="fa fa-check"></i><b>4.3</b> Preparación del registro</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#varios-días-antes"><i class="fa fa-check"></i><b>4.3.1</b> Varios días antes</a></li>
+<li class="chapter" data-level="4.3.2" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#días-antes"><i class="fa fa-check"></i><b>4.3.2</b> 2–3 días antes</a></li>
+<li class="chapter" data-level="4.3.3" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#día-antes"><i class="fa fa-check"></i><b>4.3.3</b> 1 día antes</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="registro-del-eeg.html"><a href="registro-del-eeg.html#registro-día-d"><i class="fa fa-check"></i><b>4.4</b> Registro (día D)</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Plataforma2 de usuarios locos por las ondas EEG</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tiempo-frecuencia" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Capítulo 3</span> Tiempo-frecuencia<a href="tiempo-frecuencia.html#tiempo-frecuencia" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="qué-buscamos-con-tf" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> ¿Qué buscamos con TF?<a href="tiempo-frecuencia.html#qué-buscamos-con-tf" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Separar la señal EEG en distintas frecuencias y estudiar cómo cambian su potencia y su fase en el tiempo.</strong></p>
+<ul>
+<li>Una misma señal puede contener actividad de varias frecuencias simultáneamente.</li>
+<li>La descomposición permite describir esas contribuciones.</li>
+</ul>
+</div>
+<div id="producto-punto" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Producto punto<a href="tiempo-frecuencia.html#producto-punto" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>El producto punto resulta de multiplicar los valores correspondientes de dos vectores y sumar los resultados.</strong></p>
+<ul>
+<li>Los vectores deben tener la misma cantidad de elementos.</li>
+<li>El resultado es un solo número.</li>
+<li>Puede entenderse como una suma ponderada o una medida de correspondencia entre dos patrones.</li>
+</ul>
+<p>Ejemplo:</p>
+<p><span class="math display">\[
+[1,2,3]\cdot[2,0,1]=1\times2+2\times0+3\times1=5
+\]</span></p>
+<ul>
+<li>En el análisis de señales, uno de los vectores puede ser un fragmento del EEG y el otro una onda conocida.</li>
+<li>El resultado depende de cuánto coinciden sus formas, de sus amplitudes y de su fase relativa.</li>
+<li>No es una correlación normalizada: no está limitado al rango de −1 a 1.</li>
+</ul>
+<p><strong>Es una operación básica de la convolución y de la transformada de Fourier.</strong></p>
+</div>
+<div id="convolución" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Convolución<a href="tiempo-frecuencia.html#convolución" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>La convolución aplica repetidamente una función sobre la señal para obtener una nueva serie temporal.</strong></p>
+<ul>
+<li>Se utiliza una función llamada <strong>kernel</strong>, que puede ser una wavelet.</li>
+<li>Se invierte el kernel en el tiempo y se desplaza a lo largo de la señal.</li>
+<li>En cada posición se calcula un producto punto.</li>
+<li>Los resultados forman una nueva señal que cambia en el tiempo.</li>
+</ul>
+<p><img src="docs/images/MXC_fig_10_2.jpg" width="40%" style="display: block; margin: auto;" /></p>
+<p>Si el kernel es una wavelet de 10 Hz, el resultado permite seguir la contribución de la actividad alrededor de 10 Hz a lo largo del registro.</p>
+<p><strong>Cada valor del resultado combina información de varios momentos vecinos.</strong> Por eso, una respuesta breve puede aparecer más extendida en el tiempo y resulta más difícil precisar cuándo comienza y termina.</p>
+</div>
+<div id="transformada-de-fourier" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Transformada de Fourier<a href="tiempo-frecuencia.html#transformada-de-fourier" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>La transformada de Fourier describe qué componentes sinusoidales permiten reconstruir una señal.</strong></p>
+<ul>
+<li>Refleja la correspondencia de la señal con ondas de distintas frecuencias.</li>
+<li>Para cada frecuencia devuelve un coeficiente complejo que contiene información de amplitud y fase.</li>
+<li>La <strong>FFT</strong> es un algoritmo eficiente para calcular la transformada discreta de Fourier: se obtiene el mismo resultado con menos operaciones.</li>
+</ul>
+<div id="qué-nos-dice-y-qué-no" class="section level3 hasAnchor" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> ¿Qué nos dice y qué no?<a href="tiempo-frecuencia.html#qué-nos-dice-y-qué-no" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Aplicada a un segmento completo, describe su contenido frecuencial.</li>
+<li>No muestra directamente cómo cambia ese contenido dentro del segmento.</li>
+<li>Por ejemplo, si la actividad alfa aparece solo al final de un ensayo, el espectro del ensayo completo no muestra por sí solo ese momento de aparición.</li>
+</ul>
+</div>
+<div id="duración-y-frecuencias" class="section level3 hasAnchor" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Duración y frecuencias<a href="tiempo-frecuencia.html#duración-y-frecuencias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Un segmento más largo permite distinguir frecuencias más cercanas.</li>
+<li>Añadir ceros antes de calcular la FFT produce más puntos en el espectro, pero no añade información ni permite resolver componentes que los datos originales no distinguen.</li>
+<li>La FFT también permite calcular convoluciones de forma eficiente: multiplicar las transformadas de la señal y del kernel y aplicar la transformada inversa, con la longitud adecuada para evitar que los extremos se mezclen.</li>
+</ul>
+</div>
+</div>
+<div id="wavelets-de-morlet" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Wavelets de Morlet<a href="tiempo-frecuencia.html#wavelets-de-morlet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Una wavelet de Morlet combina una oscilación con una envolvente gaussiana que concentra su amplitud alrededor de un momento.</strong></p>
+<ul>
+<li>La oscilación define la frecuencia de interés.</li>
+<li>La envolvente hace que la onda sea breve, en vez de extenderse por toda la señal.</li>
+<li>Se convoluciona con el EEG y se repite el procedimiento para distintas frecuencias.</li>
+<li>Las wavelets complejas permiten obtener potencia y fase en cada instante.</li>
+</ul>
+<div id="número-de-ciclos" class="section level3 hasAnchor" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Número de ciclos<a href="tiempo-frecuencia.html#número-de-ciclos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>El número de ciclos controla el compromiso entre precisión temporal y frecuencial.</strong></p>
+<ul>
+<li><strong>Menos ciclos:</strong> la wavelet es más breve; permite localizar mejor cambios rápidos, pero distingue peor frecuencias cercanas.</li>
+<li><strong>Más ciclos:</strong> la wavelet es más larga; distingue mejor las frecuencias, pero extiende más los cambios en el tiempo.</li>
+<li>Con el mismo número de ciclos, una wavelet de baja frecuencia dura más que una de alta frecuencia.</li>
+</ul>
+<p>No hay un número de ciclos adecuado para todas las preguntas. Debe elegirse considerando la duración de los efectos y las frecuencias que queremos distinguir.</p>
+</div>
+</div>
+<div id="fft-en-ventanas-cortas" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> FFT en ventanas cortas<a href="tiempo-frecuencia.html#fft-en-ventanas-cortas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>La short-time FFT calcula el espectro de pequeños segmentos que se desplazan a lo largo de la señal.</strong></p>
+<ol style="list-style-type: decimal">
+<li>Seleccionar una ventana temporal.</li>
+<li>Aplicar una función que atenúe sus extremos, como una ventana de Hann.</li>
+<li>Calcular la FFT de ese segmento.</li>
+<li>Desplazar la ventana y repetir.</li>
+</ol>
+<div id="qué-se-elige" class="section level3 hasAnchor" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> ¿Qué se elige?<a href="tiempo-frecuencia.html#qué-se-elige" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Duración de la ventana:</strong>
+<ul>
+<li>Ventanas cortas permiten seguir cambios rápidos, pero distinguen peor frecuencias cercanas.</li>
+<li>Ventanas largas distinguen mejor las frecuencias, pero pueden mezclar actividad de diferentes momentos.</li>
+</ul></li>
+<li><strong>Desplazamiento entre ventanas:</strong> determina cuántos resultados se obtienen a lo largo del tiempo.
+<ul>
+<li>Ventanas muy superpuestas comparten gran parte de los datos; esos resultados no son observaciones independientes.</li>
+</ul></li>
+<li><strong>Función de atenuación:</strong> reduce las discontinuidades en los extremos de cada segmento y la dispersión de su energía hacia otras frecuencias.</li>
+</ul>
+<p><strong>El intervalo entre puntos del gráfico no equivale a la precisión temporal del análisis.</strong> Calcular un resultado cada 10 ms usando ventanas de 500 ms sigue implicando que cada resultado resume un intervalo amplio.</p>
+</div>
+</div>
+<div id="multitaper" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> Multitaper<a href="tiempo-frecuencia.html#multitaper" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>El método multitaper permite analizar cada segmento utilizando varias funciones de atenuación (tapers) y combina sus estimaciones espectrales.</strong></p>
+<ul>
+<li>Se selecciona un segmento temporal.</li>
+<li>Se multiplica por varios tapers, habitualmente secuencias DPSS o Slepian.</li>
+<li>Se calcula una FFT para cada versión del segmento.</li>
+<li>Para estimar potencia, se promedian los espectros de potencia obtenidos.</li>
+<li>Al desplazar el segmento se construye una representación TF.</li>
+</ul>
+<div id="ventajas-y-límites" class="section level3 hasAnchor" number="3.7.1">
+<h3><span class="header-section-number">3.7.1</span> Ventajas y límites<a href="tiempo-frecuencia.html#ventajas-y-límites" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Puede estabilizar las estimaciones frente al ruido, especialmente en análisis de ensayos individuales y de potencia en altas frecuencias.</li>
+<li>Exige elegir la duración de la ventana y cuánto suavizado frecuencial se acepta; estas decisiones determinan cuántos tapers son útiles.</li>
+<li>Más suavizado puede ocultar efectos próximos en tiempo o frecuencia.</li>
+<li>Cohen destaca su utilidad para altas frecuencias, pero advierte que puede ser menos adecuado para separar efectos de baja frecuencia cercanos entre sí o para precisar el momento de cambios rápidos.</li>
+</ul>
+<p>Brevemente:</p>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Método</th>
+<th align="left">Operación principal</th>
+<th align="left">Decisión importante</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Morlet</td>
+<td align="left">Convolución con wavelets de distintas frecuencias.</td>
+<td align="left">Número de ciclos.</td>
+</tr>
+<tr class="even">
+<td align="left">Short-time FFT</td>
+<td align="left">FFT de segmentos con una función de atenuación.</td>
+<td align="left">Duración y desplazamiento de la ventana.</td>
+</tr>
+<tr class="odd">
+<td align="left">Multitaper</td>
+<td align="left">Varias estimaciones espectrales del mismo segmento.</td>
+<td align="left">Duración y suavizado frecuencial.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="potencia-y-fase" class="section level2 hasAnchor" number="3.8">
+<h2><span class="header-section-number">3.8</span> Potencia y fase<a href="tiempo-frecuencia.html#potencia-y-fase" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Un resultado complejo puede representarse como una flecha: su longitud indica amplitud y su ángulo indica fase.</strong></p>
+<p>Si el resultado es <span class="math inline">\(z=a+ib\)</span>:</p>
+<ul>
+<li><strong>Amplitud:</strong> longitud de la flecha, <span class="math inline">\(|z|=\sqrt{a^2+b^2}\)</span>.</li>
+<li><strong>Potencia:</strong> amplitud al cuadrado, <span class="math inline">\(|z|^2=a^2+b^2\)</span>.</li>
+<li><strong>Fase:</strong> ángulo de la flecha, <span class="math inline">\(\phi=\arg(z)\)</span>.</li>
+</ul>
+<p>Potencia y fase describen propiedades diferentes, aunque cuando la señal tiene muy poca potencia respecto del ruido, su fase resulta difícil de estimar.</p>
+</div>
+<div id="escala-de-potencia" class="section level2 hasAnchor" number="3.9">
+<h2><span class="header-section-number">3.9</span> Escala de potencia<a href="tiempo-frecuencia.html#escala-de-potencia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>La potencia del EEG suele ser mayor en frecuencias bajas y menor en frecuencias altas.</strong></p>
+<ul>
+<li>Cohen describe esta tendencia mediante una relación de tipo <span class="math inline">\(1/f\)</span>; su forma general incluye un exponente que puede variar.</li>
+<li>En un mapa de potencia sin normalizar, las frecuencias bajas pueden dominar la escala de color.</li>
+<li>También existen diferencias de amplitud entre electrodos y participantes.</li>
+</ul>
+<p>La normalización respecto de una línea base permite expresar cuánto cambia cada frecuencia en relación con su propio nivel de referencia.</p>
+<p><strong>Cambiar los límites de color solo cambia la presentación. Normalizar respecto de una línea base cambia la medida y su interpretación.</strong></p>
+</div>
+<div id="línea-base" class="section level2 hasAnchor" number="3.10">
+<h2><span class="header-section-number">3.10</span> Línea base<a href="tiempo-frecuencia.html#línea-base" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>La línea base es el período de referencia con el que comparamos la potencia de otros momentos.</strong></p>
+<ul>
+<li>Primero se estima la potencia TF.</li>
+<li>Después se calcula la potencia media durante la línea base, por separado para cada frecuencia y canal.</li>
+<li>Cada valor se expresa respecto de ese nivel de referencia.</li>
+</ul>
+<div id="decibeles" class="section level3 hasAnchor" number="3.10.1">
+<h3><span class="header-section-number">3.10.1</span> Decibeles<a href="tiempo-frecuencia.html#decibeles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\mathrm{dB}(t,f)=10\log_{10}\left(\frac{P(t,f)}{B(f)}\right)
+\]</span></p>
+<p><span class="math inline">\(P(t,f)\)</span> es la potencia en un tiempo y frecuencia; <span class="math inline">\(B(f)\)</span> es la potencia media de esa frecuencia durante la línea base.</p>
+<ul>
+<li><strong>0 dB:</strong> misma potencia que en la línea base.</li>
+<li><strong>Valores positivos:</strong> aumento relativo de potencia.</li>
+<li><strong>Valores negativos:</strong> disminución relativa de potencia.</li>
+</ul>
+<p>Ej:</p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Potencia respecto de la línea base</th>
+<th align="left">Razón</th>
+<th align="left">Cambio porcentual</th>
+<th align="left">Decibeles</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">La mitad</td>
+<td align="left">0,5</td>
+<td align="left">−50%</td>
+<td align="left">Aproximadamente −3 dB.</td>
+</tr>
+<tr class="even">
+<td align="left">La misma</td>
+<td align="left">1</td>
+<td align="left">0%</td>
+<td align="left">0 dB.</td>
+</tr>
+<tr class="odd">
+<td align="left">El doble</td>
+<td align="left">2</td>
+<td align="left">+100%</td>
+<td align="left">Aproximadamente +3 dB.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>−3 dB no significa potencia negativa.</strong> Significa que la potencia es aproximadamente la mitad del nivel de referencia.</p>
+</div>
+<div id="otras-transformaciones" class="section level3 hasAnchor" number="3.10.2">
+<h3><span class="header-section-number">3.10.2</span> Otras transformaciones<a href="tiempo-frecuencia.html#otras-transformaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Razón:</strong> dividir la potencia por la potencia de la línea base. El valor sin cambio es 1.</li>
+<li><strong>Cambio porcentual:</strong> <span class="math inline">\(100\times(P-B)/B\)</span>. El valor sin cambio es 0%.</li>
+<li><strong>Puntuación z:</strong> restar la media de la línea base y dividir por su desviación estándar. Expresa la distancia respecto de la línea base en unidades de su variabilidad.</li>
+</ul>
+<p>No producen resultados idénticos: los decibelios utilizan una escala logarítmica; el porcentaje utiliza una escala lineal; la puntuación z también depende de la variabilidad de la línea base.</p>
+</div>
+<div id="cómo-elegir-el-período" class="section level3 hasAnchor" number="3.10.3">
+<h3><span class="header-section-number">3.10.3</span> ¿Cómo elegir el período?<a href="tiempo-frecuencia.html#cómo-elegir-el-período" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Revisar qué ocurrió antes del evento: un estímulo de advertencia o una respuesta previa pueden contaminar la referencia.</li>
+<li>Dejar suficiente separación respecto del evento para reducir la influencia de actividad posterior que se extienda hacia atrás por el análisis TF.</li>
+<li>No copiar automáticamente la línea base utilizada para un ERP.</li>
+<li>Si se estudia actividad alineada a la respuesta, una línea base inmediatamente anterior puede contener procesamiento del estímulo o preparación motora.</li>
+</ul>
+<p><strong>La línea base no es un estado de ausencia de actividad cerebral.</strong> Es una comparación elegida dentro del diseño.</p>
+</div>
+<div id="una-línea-base-por-condición-o-una-común" class="section level3 hasAnchor" number="3.10.4">
+<h3><span class="header-section-number">3.10.4</span> ¿Una línea base por condición o una común?<a href="tiempo-frecuencia.html#una-línea-base-por-condición-o-una-común" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Por condición:</strong> cada condición se compara con su propio nivel previo.</li>
+<li><strong>Común:</strong> se calcula una referencia combinando las condiciones y se aplica a todas.
+<ul>
+<li>Utiliza más ensayos para estimar la referencia.</li>
+<li>Permite conservar diferencias previas entre condiciones.</li>
+</ul></li>
+</ul>
+<p>Una diferencia de línea base puede cambiar la interpretación de lo que ocurre después. Dos condiciones con la misma potencia posterior pueden mostrar cambios relativos distintos si partían de niveles diferentes.</p>
+</div>
+</div>
+<div id="itpc" class="section level2 hasAnchor" number="3.11">
+<h2><span class="header-section-number">3.11</span> ITPC<a href="tiempo-frecuencia.html#itpc" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>La ITPC indica qué tan parecida es la fase de un mismo canal, en un mismo tiempo y frecuencia, entre ensayos.</strong></p>
+<p>ITPC significa <em>intertrial phase clustering</em>.</p>
+<ul>
+<li>Se alinean los ensayos a un evento.</li>
+<li>Se toma la fase de cada ensayo en un punto TF.</li>
+<li>Se examina si esas fases se concentran alrededor de un ángulo o están dispersas.</li>
+</ul>
+<div id="por-qué-no-promediar-directamente-los-ángulos" class="section level3 hasAnchor" number="3.11.1">
+<h3><span class="header-section-number">3.11.1</span> ¿Por qué no promediar directamente los ángulos?<a href="tiempo-frecuencia.html#por-qué-no-promediar-directamente-los-ángulos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>La fase es circular: 0° y 360° representan el mismo punto.</li>
+<li>10° y 350° están cerca, aunque su promedio aritmético sea 180°.</li>
+<li>Por eso se representan como flechas de longitud 1 en un círculo y se promedian las flechas.</li>
+</ul>
+</div>
+<div id="cómo-se-calcula" class="section level3 hasAnchor" number="3.11.2">
+<h3><span class="header-section-number">3.11.2</span> ¿Cómo se calcula?<a href="tiempo-frecuencia.html#cómo-se-calcula" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\mathrm{ITPC}(t,f)=\left|\frac{1}{N}\sum_{r=1}^{N}e^{i\phi_r(t,f)}\right|
+\]</span></p>
+<p><span class="math inline">\(N\)</span> es el número de ensayos y <span class="math inline">\(\phi_r\)</span> la fase de cada ensayo. La expresión <span class="math inline">\(e^{i\phi}\)</span> representa una flecha de longitud 1; las barras indican la longitud de la flecha promedio.</p>
+<ul>
+<li><strong>Cerca de 1:</strong> las flechas apuntan en direcciones similares; las fases son consistentes entre ensayos.</li>
+<li><strong>Cerca de 0:</strong> las flechas se compensan y la resultante es pequeña.</li>
+</ul>
+<p>Por ejemplo, fases de 20°, 25° y 30° producen alta ITPC. Fases repartidas alrededor de todo el círculo producen baja ITPC.</p>
+</div>
+<div id="qué-debemos-cuidar" class="section level3 hasAnchor" number="3.11.3">
+<h3><span class="header-section-number">3.11.3</span> ¿Qué debemos cuidar?<a href="tiempo-frecuencia.html#qué-debemos-cuidar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Con pocos ensayos, la ITPC puede ser relativamente alta incluso con fases aleatorias.</li>
+<li>Diferencias de cantidad de ensayos entre condiciones pueden sesgar la comparación.</li>
+<li>La variabilidad en el tiempo de los eventos reduce la consistencia de fase, especialmente en frecuencias altas.</li>
+<li>Aunque la fórmula elimina la amplitud de cada flecha, una mala relación señal/ruido afecta la estimación de fase.</li>
+<li>Una ITPC baja no descarta toda estructura: dos grupos de fases en ángulos opuestos también pueden cancelarse.</li>
+</ul>
+<p><strong>La ITPC mide consistencia respecto de un evento, no conectividad entre dos sitios.</strong> Tampoco demuestra por sí sola un mecanismo de reinicio de fase.</p>
+</div>
+</div>
+<div id="conectividad" class="section level2 hasAnchor" number="3.12">
+<h2><span class="header-section-number">3.12</span> Conectividad<a href="tiempo-frecuencia.html#conectividad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>La conectividad funcional describe relaciones estadísticas entre señales de distintos sitios.</strong></p>
+<ul>
+<li>En conectividad basada en fase interesa si <strong>la diferencia de fase entre los sitios es consistente</strong>.</li>
+<li>En conectividad basada en potencia interesa si <strong>sus potencias varían conjuntamente</strong>.</li>
+<li>Ambas pueden estudiarse a través del tiempo o a través de los ensayos.</li>
+</ul>
+<p><strong>Una relación estadística no demuestra una conexión anatómica directa ni causalidad.</strong> Dos sitios pueden compartir una fuente o recibir una influencia común.</p>
+</div>
+<div id="ispc" class="section level2 hasAnchor" number="3.13">
+<h2><span class="header-section-number">3.13</span> ISPC<a href="tiempo-frecuencia.html#ispc" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>La ISPC mide qué tan consistente es la diferencia de fase entre dos sitios.</strong></p>
+<p>ISPC significa <em>intersite phase clustering</em>.</p>
+<ul>
+<li>Se estima la fase de A y de B en la misma frecuencia.</li>
+<li>Se calcula su diferencia: <span class="math inline">\(\Delta\phi=\phi_A-\phi_B\)</span>.</li>
+<li>Cada diferencia se representa como una flecha de longitud 1.</li>
+<li>La longitud de la flecha promedio indica la ISPC.</li>
+</ul>
+<p><span class="math display">\[
+\mathrm{ISPC}=\left|\frac{1}{K}\sum_{k=1}^{K}e^{i(\phi_{A,k}-\phi_{B,k})}\right|
+\]</span></p>
+<p><span class="math inline">\(k\)</span> puede representar puntos temporales o ensayos, según el análisis.</p>
+<div id="qué-significa-un-valor-alto" class="section level3 hasAnchor" number="3.13.1">
+<h3><span class="header-section-number">3.13.1</span> ¿Qué significa un valor alto?<a href="tiempo-frecuencia.html#qué-significa-un-valor-alto" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>La diferencia de fase se mantiene relativamente estable.</li>
+<li>No exige que ambas señales tengan la misma fase.</li>
+<li>Una diferencia constante de 0°, 90° o 180° puede producir ISPC igual a 1.</li>
+<li>La ISPC original va de 0 a 1 y no indica cuál sitio influye sobre el otro.</li>
+</ul>
+<p><strong>Lo importante es la consistencia del desfase, no que el desfase sea cero.</strong></p>
+</div>
+</div>
+<div id="ispc-time" class="section level2 hasAnchor" number="3.14">
+<h2><span class="header-section-number">3.14</span> ISPC-time<a href="tiempo-frecuencia.html#ispc-time" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Pregunta: dentro de una ventana temporal, ¿se mantiene la diferencia de fase entre A y B?</strong></p>
+<ul>
+<li>Se calculan las diferencias de fase en varios momentos de un mismo ensayo.</li>
+<li>Se obtiene una ISPC para esa ventana.</li>
+<li>Se desplaza la ventana para seguir cambios a lo largo del ensayo.</li>
+<li>En tareas, pueden promediarse después los valores de ISPC obtenidos en los distintos ensayos.</li>
+</ul>
+<div id="ventajas-y-límites-1" class="section level3 hasAnchor" number="3.14.1">
+<h3><span class="header-section-number">3.14.1</span> Ventajas y límites<a href="tiempo-frecuencia.html#ventajas-y-límites-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Puede detectar una relación estable dentro de cada ensayo aunque el desfase sea diferente entre ensayos.</li>
+<li>Puede utilizarse con datos de reposo.</li>
+<li>Requiere una ventana con suficientes datos para estimar la consistencia.</li>
+<li>Esa ventana añade pérdida de precisión temporal a la introducida por la descomposición TF.</li>
+<li>Las frecuencias bajas necesitan intervalos más largos; estos pueden abarcar eventos distintos.</li>
+</ul>
+<p>Para el procedimiento descrito por Cohen se necesita una serie temporal de fase, como la obtenida con Morlet compleja o filtrado seguido de Hilbert.</p>
+</div>
+</div>
+<div id="ispc-trials" class="section level2 hasAnchor" number="3.15">
+<h2><span class="header-section-number">3.15</span> ISPC-trials<a href="tiempo-frecuencia.html#ispc-trials" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Pregunta: en un mismo momento del ensayo, ¿se repite la diferencia de fase entre A y B?</strong></p>
+<ul>
+<li>Se selecciona un tiempo y una frecuencia.</li>
+<li>Se obtiene la diferencia de fase entre A y B en cada ensayo.</li>
+<li>Se calcula la consistencia de esas diferencias entre ensayos.</li>
+<li>Se repite en los demás puntos para obtener un mapa TF.</li>
+</ul>
+<div id="ventajas-y-límites-2" class="section level3 hasAnchor" number="3.15.1">
+<h3><span class="header-section-number">3.15.1</span> Ventajas y límites<a href="tiempo-frecuencia.html#ventajas-y-límites-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>No añade una ventana temporal de promedio más allá de la utilizada para estimar la fase.</li>
+<li>Es útil para seguir cambios de conectividad relacionados con eventos.</li>
+<li>Exige que el desfase sea consistente entre ensayos.</li>
+<li>Es sensible a la cantidad de ensayos y a la incertidumbre temporal de los eventos.</li>
+<li>Los segmentos de reposo sin un evento común no tienen la misma interpretación que ensayos alineados a una tarea.</li>
+</ul>
+</div>
+<div id="un-ejemplo-para-distinguirlas" class="section level3 hasAnchor" number="3.15.2">
+<h3><span class="header-section-number">3.15.2</span> Un ejemplo para distinguirlas<a href="tiempo-frecuencia.html#un-ejemplo-para-distinguirlas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Supongamos cuatro ensayos:</p>
+<ul>
+<li>En el primero, A y B mantienen un desfase de 0°.</li>
+<li>En el segundo, mantienen 90°.</li>
+<li>En el tercero, mantienen 180°.</li>
+<li>En el cuarto, mantienen 270°.</li>
+</ul>
+<p><strong>La ISPC-tiempo será alta en cada ensayo</strong>, porque dentro de él el desfase no cambia.</p>
+<p><strong>La ISPC-ensayos será baja</strong>, porque en un mismo momento los cuatro ensayos tienen desfases diferentes que se compensan.</p>
+<p>Brevemente:</p>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Medida</th>
+<th align="left">¿Qué se compara?</th>
+<th align="left">¿A través de qué?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ITPC</td>
+<td align="left">Fase de un canal.</td>
+<td align="left">Ensayos, en un mismo punto TF.</td>
+</tr>
+<tr class="even">
+<td align="left">ISPC-tiempo</td>
+<td align="left">Diferencia de fase entre dos canales.</td>
+<td align="left">Momentos dentro de una ventana.</td>
+</tr>
+<tr class="odd">
+<td align="left">ISPC-ensayos</td>
+<td align="left">Diferencia de fase entre dos canales.</td>
+<td align="left">Ensayos, en un mismo punto TF.</td>
+</tr>
+</tbody>
+</table>
+<p>La ISPC-ensayos puede ser alta aunque la ITPC de cada canal sea baja: las fases individuales pueden variar entre ensayos, pero variar juntas y conservar su diferencia.</p>
+</div>
+</div>
+<div id="precauciones" class="section level2 hasAnchor" number="3.16">
+<h2><span class="header-section-number">3.16</span> Precauciones<a href="tiempo-frecuencia.html#precauciones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="conducción-de-volumen" class="section level3 hasAnchor" number="3.16.1">
+<h3><span class="header-section-number">3.16.1</span> Conducción de volumen<a href="tiempo-frecuencia.html#conducción-de-volumen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Dos electrodos pueden registrar una misma fuente y mostrar alta ISPC sin que exista interacción entre dos fuentes distintas.</strong></p>
+<ul>
+<li>Una topografía de conectividad entre electrodos no es automáticamente un mapa de conexiones cerebrales.</li>
+<li>Los filtros espaciales y ciertas medidas basadas en desfases pueden ayudar a reducir este problema.</li>
+<li>Medidas como coherencia imaginaria o PLI reducen sensibilidad a relaciones de fase de cero o media vuelta, pero también pueden perder interacciones reales.</li>
+<li>Elegir otra medida no elimina la necesidad de interpretar sus supuestos y limitaciones.</li>
+</ul>
+</div>
+<div id="cantidad-de-datos-potencia-y-línea-base" class="section level3 hasAnchor" number="3.16.2">
+<h3><span class="header-section-number">3.16.2</span> Cantidad de datos, potencia y línea base<a href="tiempo-frecuencia.html#cantidad-de-datos-potencia-y-línea-base" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>La ISPC-ensayos comparte con la ITPC el sesgo asociado a pocos ensayos.</li>
+<li>La duración de ventana influye en la ISPC-tiempo.</li>
+<li>Una potencia muy baja respecto del ruido dificulta estimar las fases.</li>
+<li>Puede restarse una línea base para describir cambios de ISPC.
+<ul>
+<li>Un resultado negativo después de esa resta significa menor ISPC respecto de la línea base, no una ISPC original negativa.</li>
+</ul></li>
+<li>Seleccionar tiempos, frecuencias y pares de canales implica decisiones estadísticas y posibles comparaciones múltiples.</li>
+</ul>
+</div>
+</div>
+<div id="conectividad-en-poder" class="section level2 hasAnchor" number="3.17">
+<h2><span class="header-section-number">3.17</span> Conectividad en poder<a href="tiempo-frecuencia.html#conectividad-en-poder" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Pregunta si la potencia de dos sitios aumenta y disminuye conjuntamente.</strong></p>
+<ul>
+<li>No utiliza las diferencias de fase.</li>
+<li>Se estima la potencia de cada sitio y se calcula su correlación.</li>
+<li>Puede estudiarse en la misma banda o, si la pregunta lo justifica, entre bandas diferentes.</li>
+<li>Una relación entre bandas diferentes corresponde a una forma de acoplamiento entre frecuencias.</li>
+</ul>
+<div id="cómo-se-interpreta" class="section level3 hasAnchor" number="3.17.1">
+<h3><span class="header-section-number">3.17.1</span> ¿Cómo se interpreta?<a href="tiempo-frecuencia.html#cómo-se-interpreta" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Correlación positiva:</strong> valores altos en A tienden a acompañarse de valores altos en B.</li>
+<li><strong>Correlación negativa:</strong> valores altos en A tienden a acompañarse de valores bajos en B.</li>
+<li><strong>Cerca de cero:</strong> poca relación del tipo que mide la correlación utilizada.</li>
+</ul>
+<p>Una correlación negativa no demuestra inhibición entre regiones. Una positiva no demuestra excitación ni una conexión directa.</p>
+</div>
+<div id="pearson-o-spearman" class="section level3 hasAnchor" number="3.17.2">
+<h3><span class="header-section-number">3.17.2</span> Pearson o Spearman<a href="tiempo-frecuencia.html#pearson-o-spearman" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Pearson:</strong> cuantifica una relación lineal y es sensible a valores extremos.</li>
+<li><strong>Spearman:</strong> correlaciona los rangos de los valores y cuantifica una relación monotónica.</li>
+<li>Cohen favorece Spearman para correlaciones de potencia dentro de un participante porque la potencia suele tener una distribución asimétrica y valores extremos.</li>
+</ul>
+<p><strong>Spearman reduce la influencia de la magnitud de los valores extremos, pero no reemplaza la limpieza de los datos.</strong></p>
+</div>
+</div>
+<div id="correlación-de-poder-tiempo" class="section level2 hasAnchor" number="3.18">
+<h2><span class="header-section-number">3.18</span> Correlación de poder (tiempo)<a href="tiempo-frecuencia.html#correlación-de-poder-tiempo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Pregunta: durante una ventana, ¿la potencia de A y la de B fluctúan juntas?</strong></p>
+<ul>
+<li>Cada observación es un momento de la ventana.</li>
+<li>Se correlacionan las dos series de potencia.</li>
+<li>Puede aplicarse a tareas o reposo.</li>
+<li>Ventanas largas pueden ocultar relaciones breves; ventanas cortas pueden producir estimaciones inestables.</li>
+</ul>
+<p>Por ejemplo, si durante un ensayo la potencia alfa aumenta y disminuye de forma parecida en A y B, su correlación temporal será positiva, aunque sus fases no mantengan una relación estable.</p>
+<p><strong>La correlación de potencia y la ISPC pueden mostrar patrones diferentes en los mismos datos.</strong></p>
+</div>
+<div id="correlación-de-poder-ensayos" class="section level2 hasAnchor" number="3.19">
+<h2><span class="header-section-number">3.19</span> Correlación de poder (ensayos)<a href="tiempo-frecuencia.html#correlación-de-poder-ensayos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Pregunta: los ensayos con mayor potencia en A, ¿también tienen mayor potencia en B?</strong></p>
+<p>Cohen describe tres opciones:</p>
+<ul>
+<li><strong>Dos ventanas definidas previamente:</strong> extraer un valor de potencia por ensayo en cada sitio y correlacionarlos.
+<ul>
+<li>Las ventanas pueden corresponder a distintos momentos o frecuencias.</li>
+</ul></li>
+<li><strong>Punto a punto:</strong> correlacionar entre ensayos la potencia de A y B en cada punto TF.
+<ul>
+<li>Produce un mapa de correlaciones que cambia con el tiempo y la frecuencia.</li>
+</ul></li>
+<li><strong>Ventana semilla:</strong> seleccionar una ventana TF en A y correlacionar su potencia entre ensayos con cada punto TF de B.
+<ul>
+<li>Permite explorar con qué momentos y frecuencias se relaciona esa ventana de interés.</li>
+</ul></li>
+</ul>
+<p><strong>En un gráfico de dispersión de estas correlaciones, cada punto es un ensayo.</strong> No es un participante ni un instante temporal.</p>
+</div>
+<div id="limitaciones-3" class="section level2 hasAnchor" number="3.20">
+<h2><span class="header-section-number">3.20</span> Limitaciones<a href="tiempo-frecuencia.html#limitaciones-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>La conducción de volumen puede generar relaciones entre canales que comparten fuentes.</li>
+<li>Una influencia común puede producir covariación sin interacción directa entre los dos sitios.</li>
+<li>La correlación no establece la dirección de la relación.</li>
+<li>Correlacionar datos de distintas frecuencias o momentos requiere justificar qué relación se quiere evaluar.</li>
+</ul>
+<p>Las <strong>correlaciones parciales</strong> permiten estudiar la relación entre A y B controlando la variación compartida con una tercera variable C. Pueden ayudar a examinar redes o algunas contribuciones compartidas, pero no demuestran causalidad ni eliminan automáticamente toda mezcla de fuentes.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="preprocesamiento-del-eeg.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="registro-del-eeg.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/joseluisulloafulgeri/pulpo_eeg/edit/main/03-TF.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/joseluisulloafulgeri/pulpo_eeg/blob/main/03-TF.Rmd",
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

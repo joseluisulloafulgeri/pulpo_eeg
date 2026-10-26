@@ -228,7 +228,7 @@ Cohen distingue tres objetivos:
 - Puede utilizarse para identificar componentes dominados por artefactos y retirar su contribución de los datos.
 - También puede utilizarse para analizar directamente la actividad de los componentes.
 
-### ¿Cómo identificar un componente artefactual?
+### Componentes artefactuales
 
 Se consideran conjuntamente:
 
@@ -236,7 +236,7 @@ Se consideran conjuntamente:
 - **Curso temporal:** cuándo aparecen sus variaciones y qué forma tienen.
 - **Espectro:** en qué frecuencias se concentra su actividad.
 
-Por ejemplo, un componente de parpadeo suele mostrar una distribución anterior y deflexiones grandes y breves en el tiempo.
+Ej: un componente de parpadeo suele mostrar una distribución anterior y deflexiones grandes y breves en el tiempo.
 
 ### Limitaciones
 
@@ -281,19 +281,6 @@ Por ejemplo, un componente de parpadeo suele mostrar una distribución anterior 
 - La contaminación continua exige valorar su distribución y los objetivos del análisis.
 - Si se retira un componente muscular mediante ICA, hay que comprobar que no contenga también señal cerebral relevante.
 
-## Conducta y validez de los ensayos
-
-**Un ensayo puede tener una señal eléctrica limpia y, aun así, no representar el proceso que queremos estudiar.**
-
-Cohen llama a este problema ruido o artefactos cognitivos.
-
-- Considerar separar respuestas correctas e incorrectas.
-- Revisar omisiones, respuestas múltiples y tiempos de reacción inusualmente rápidos o lentos.
-- Valorar ensayos posteriores a errores o pausas si introducen procesos ajenos a la pregunta.
-- No excluir automáticamente una clase de ensayos: los errores o los cambios de regla pueden ser precisamente el fenómeno de interés.
-
-**Los criterios conductuales dependen de la tarea; no hay un único umbral de tiempo de reacción válido para todos los experimentos.**
-
 ### Errores parciales
 
 - Una persona puede activar brevemente la mano incorrecta y después pulsar correctamente con la otra.
@@ -301,7 +288,7 @@ Cohen llama a este problema ruido o artefactos cognitivos.
 - Esos ensayos pueden presentar respuestas cerebrales parecidas a las de los errores.
 - Según la pregunta, pueden separarse o analizarse como una categoría propia.
 
-## Reducir artefactos durante el registro
+## Un buen registro
 
 **La mejor forma de facilitar el preprocesamiento es comenzar con datos de buena calidad.**
 
@@ -314,9 +301,9 @@ Cohen llama a este problema ruido o artefactos cognitivos.
 
 **El preprocesamiento puede mejorar datos buenos; no convierte cualquier registro deficiente en datos de buena calidad.**
 
-## Primera revisión en el dominio temporal
+## Sanity-checks
 
-**Los ERPs y las representaciones temporales ayudan a comprobar la calidad de los datos, aunque el análisis principal sea TF.**
+**Los ERPs y las series de tiempo ayudan a comprobar la calidad de los datos, aunque el análisis principal sea TF.**
 
 - **ERP por condición:** alinear los ensayos y promediar el voltaje en cada instante.
 - **Butterfly plot:** superponer los ERPs de todos los electrodos para detectar canales o patrones anómalos.
@@ -324,14 +311,9 @@ Cohen llama a este problema ruido o artefactos cognitivos.
 - **Topografías a lo largo del tiempo:** revisar la distribución de las respuestas y detectar electrodos problemáticos.
 - **ERP image:** mostrar los ensayos de un electrodo como filas, con el voltaje representado por colores; permite observar información que se pierde en el promedio.
 
-### Cuidado con el filtrado de ERPs
-
-- Un pasa-bajos puede reducir fluctuaciones rápidas residuales y facilitar la inspección.
-- También reduce precisión temporal y puede modificar componentes.
-- Un filtro mal diseñado puede producir ondulaciones artificiales.
 - Una curva más suave no es necesariamente una representación más fiel de los datos.
 
-## Qué debe quedar documentado
+## Documentar
 
 - Evento utilizado como tiempo cero, duración de las épocas y márgenes temporales.
 - Filtros y parámetros aplicados.

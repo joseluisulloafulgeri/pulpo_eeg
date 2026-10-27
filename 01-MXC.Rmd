@@ -9,6 +9,10 @@
 - La percepción, la memoria, el lenguaje, las emociones y el control de la conducta se desarrollan mediante actividad cerebral que cambia en el tiempo.
 - La electrofisiología permite investigar esa dinámica y relacionarla con lo que una persona percibe, piensa o hace.
 
+```{r, echo=FALSE, out.width='80%', fig.align='center', fig.cap=NULL}
+knitr::include_graphics('docs/images/Cogn_electro_1.jpg')
+```
+
 - Se describe un **espectro de investigadores con distintos objetivos**:
   - En un extremo, el interés principal es **comprender los procesos cognitivos.** La electrofisiología permite distinguir procesos y subcomponentes que las medidas conductuales pueden no diferenciar. Se priorizan el diseño experimental y las teorías cognitivas.
   - En el otro extremo, el interés principal es **comprender las propiedades funcionales de las redes neuronales.** Los paradigmas cognitivos sirven para provocar patrones específicos de actividad neuronal. Se priorizan el análisis de las señales y su interpretación neurofisiológica.
@@ -17,6 +21,10 @@
 ## ¿Qué se registra con EEG?
 
 **El EEG registra diferencias de potencial eléctrico, habitualmente expresadas en microvoltios (µV).**
+
+```{r, echo=FALSE, out.width='80%', fig.align='center', fig.cap=NULL}
+knitr::include_graphics('docs/images/Cogn_electro_2.jpg')
+```
 
 - El voltaje de cada electrodo se mide respecto de una **referencia**.
 - La señal refleja actividad eléctrica de poblaciones neuronales, principalmente células piramidales corticales.
@@ -37,9 +45,18 @@
 knitr::include_graphics('docs/images/EEG.jpg')
 ```
 
+El EEG vs la MEG
+```{r, echo=FALSE, out.width='90%', fig.align='center', fig.cap=NULL}
+knitr::include_graphics('docs/images/Cogn_electro_4.jpg')
+```
+
 ## ¿Para qué usar el EEG?
 
 **El EEG resulta especialmente útil cuando importa cómo cambia la actividad cerebral en el tiempo.**
+
+```{r, echo=FALSE, out.width='80%', fig.align='center', fig.cap=NULL}
+knitr::include_graphics('docs/images/Cogn_electro_3.jpg')
+```
 
 Hay 3 ventajas principales:
 
@@ -60,6 +77,14 @@ Hay 3 ventajas principales:
 ## ERPs
 
 **Los potenciales relacionados a eventos (ERPs) son respuestas eléctrica promedio alineadas a un evento.**
+
+```{r, echo=FALSE, out.width='80%', fig.align='center', fig.cap=NULL}
+knitr::include_graphics('docs/images/Cogn_electro_5.jpg')
+```
+
+```{r, echo=FALSE, out.width='80%', fig.align='center', fig.cap=NULL}
+knitr::include_graphics('docs/images/Cogn_electro_6.jpg')
+```
 
 - Se recortan segmentos alrededor de un estímulo o una respuesta
 - Se alinean en el tiempo y 
@@ -274,3 +299,87 @@ knitr::include_graphics('docs/images/MXC_fig_13_14_full.jpg')
 - **Frecuencias extremas:** por encima de 100 Hz, la baja relación señal/ruido exige especial cuidado; por debajo de 1 Hz, los filtros y las derivas lentas pueden afectar la interpretación.
 
 
+
+## Del registro al análisis
+
+**Entre registrar el EEG y responder una pregunta hay 2 etapas: preparar los datos y calcular las medidas que nos interesan.**
+
+- **Preprocesamiento:** organizar los datos y reducir la influencia del ruido y los artefactos.
+- **Análisis (procesamiento):** obtener medidas de actividad cerebral y utilizarlas para investigar una pregunta.
+
+| Etapa | Pregunta principal | Ejemplo |
+|:--|:--|:--|
+| Preprocesamiento | ¿Los datos están preparados para el análisis? | Identificar ensayos contaminados por movimientos. |
+| Análisis | ¿Qué información podemos extraer de estos datos? | Estimar cómo cambia la potencia alfa después de un estímulo. |
+
+### Preprocesamiento
+
+**Incluye las operaciones que realizamos entre la adquisición del EEG y su análisis.**
+
+Estas operaciones pueden:
+
+- **Organizar los datos**, sin modificar los valores de la señal.
+    - Ej: segmentar el registro continuo en épocas alrededor de un estímulo.
+- **Excluir datos de mala calidad.**
+    - Ej: rechazar un ensayo con un artefacto intenso.
+- **Transformar la señal.**
+    - Ej: aplicar un filtro o cambiar la referencia.
+
+**Nuestro objetivo es reducir el ruido conservando la actividad de interés.** Como ambos pueden estar mezclados, una limpieza más intensa también puede eliminar señal relevante.
+
+### ¿Qué operaciones incluye?
+
+**La secuencia depende del registro, del experimento y del análisis previsto.**
+
+| Operación | ¿Para qué sirve? |
+|:--|:--|
+| **Importar y revisar el registro** | Comprobar la señal y varios parámetros (canales, frecuencia de muestreo ...). |
+| **Incorporar las posiciones de los electrodos** | Relacionar cada canal con su ubicación para representar topografías y realizar análisis espaciales. |
+| **Revisar los triggers** | Identificar correctamente los estímulos, las respuestas y las condiciones del experimento. |
+| **Filtrar** | Atenuar determinadas frecuencias, como las derivas muy lentas o el ruido eléctrico. |
+| **Revisar los canales auxiliares** | Utilizar señales oculares, cardíacas o musculares para reconocer posibles artefactos. |
+| **Crear épocas** | Recortar segmentos alrededor de eventos y definir qué corresponde al tiempo cero. |
+| **Corregir por línea base** | Restar, para cada canal y época, el voltaje promedio de un período de referencia a todos los puntos de esa época. El promedio del período de referencia queda en cero. |
+| **Detectar canales y ensayos problemáticos** | Identificar datos que requieren exclusión o tratamiento adicional. |
+| **Cambiar la referencia** | Expresar el voltaje de los canales respecto de una referencia seleccionada. |
+| **Aplicar ICA, cuando corresponda** | Separar componentes e identificar aquellos asociados con artefactos para retirarlos de la reconstrucción de la señal. |
+| **Interpolar canales, cuando corresponda** | Estimar la señal de un canal defectuoso a partir de otros electrodos y sus posiciones. |
+
+- **Filtrar no elimina todos los artefactos.** La actividad muscular y cerebral puede compartir frecuencias.
+- **ICA requiere interpretar los componentes.** No todo componente es un artefacto ni corresponde a una única fuente cerebral.
+- **Interpolar no recupera una medición perdida.** Produce una estimación basada en los canales disponibles.
+- **Para TF se necesitan márgenes temporales adicionales.** Conviene conservar datos antes y después del intervalo de interés para limitar la influencia de los efectos de borde.
+
+### Análisis
+
+**Con los datos preparados, calculamos las medidas que permiten abordar nuestra pregunta.**
+
+- **ERPs:** promediar el voltaje de los ensayos alineados a un evento.
+    - ¿Cuándo aparece una respuesta y cuál es su amplitud?
+- **Potencia TF:** estimar cómo cambia la magnitud de la actividad en distintas frecuencias.
+    - ¿Disminuye la potencia alfa después del estímulo?
+- **Consistencia de fase entre ensayos:** evaluar si la fase se repite en un momento respecto del evento.
+    - ¿La fase de una frecuencia es similar entre ensayos?
+- **Conectividad:** cuantificar relaciones entre las señales de distintos sitios.
+    - ¿Mantienen una diferencia de fase consistente o covarían sus potencias?
+
+Estas medidas pueden compararse entre condiciones o relacionarse con la conducta.
+
+### Un ejemplo completo
+
+**Pregunta: ¿cambia la potencia alfa después de presentar un estímulo visual?**
+
+1. **Registro:** adquirir el EEG y los marcadores que indican cuándo apareció cada estímulo.
+2. **Preprocesamiento:** revisar los canales y eventos, tratar los artefactos y extraer épocas con márgenes suficientes.
+3. **Analisis:** calcular la potencia TF de cada ensayo y expresar sus cambios respecto de una línea base.
+4. **Estadística:** examinar cuándo y dónde aparece el cambio y realizar el contraste estadístico correspondiente.
+
+### Lo importante
+
+- **El preprocesamiento puede consumir mucho tiempo**, pero determina la calidad de los análisis posteriores.
+- **Una misma preparación puede servir para varios análisis**, siempre que conserve la información necesaria para cada uno.
+- **Las decisiones deben quedar registradas:** filtros, referencia, ensayos excluidos, canales interpolados y componentes retirados.
+- **Deben aplicarse procedimientos y criterios consistentes entre condiciones**, para evitar introducir diferencias artificiales.
+- **Un análisis sofisticado no compensa un registro de mala calidad.**
+
+El análisis puede estar guiado por hipótesis o ser exploratorio. En ambos casos, debemos distinguir lo que estaba previsto de lo que surgió al examinar los datos.

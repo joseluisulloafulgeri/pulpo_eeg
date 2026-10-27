@@ -20,6 +20,12 @@ compromiso-entre-precisión-temporal-y-frecuencial
 los-datos-tf
 cómo-leer-un-mapa-tiempo-frecuencia
 qué-patrones-requieren-especial-atención
+del-registro-al-análisis
+preprocesamiento
+qué-operaciones-incluye
+análisis
+un-ejemplo-completo
+lo-importante
 preprocesamiento-del-eeg
 qué-es-1
 antes-de-registrar
@@ -89,7 +95,7 @@ pearson-o-spearman
 correlación-de-poder-tiempo
 correlación-de-poder-ensayos
 limitaciones-3
-registro-del-eeg
+eeg-en-la-práctica
 conceptos-importantes-1
 el-equipo-de-registro
 qué-se-registra

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 4 EEG en la práctica | Plataforma de usuarios locos por las ondas EEG</title>
+  <meta name="description" content="Capítulo 4 EEG en la práctica | Plataforma de usuarios locos por las ondas EEG" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 4 EEG en la práctica | Plataforma de usuarios locos por las ondas EEG" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 4 EEG en la práctica | Plataforma de usuarios locos por las ondas EEG" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="tiempo-frecuencia.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Pulpo-EEG</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preámbulo</a></li>
+<li class="chapter" data-level="1" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html"><i class="fa fa-check"></i><b>1</b> Electrofisiología cognitiva</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#qué-es"><i class="fa fa-check"></i><b>1.1</b> ¿Qué es?</a></li>
+<li class="chapter" data-level="1.2" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#qué-se-registra-con-eeg"><i class="fa fa-check"></i><b>1.2</b> ¿Qué se registra con EEG?</a></li>
+<li class="chapter" data-level="1.3" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#para-qué-usar-el-eeg"><i class="fa fa-check"></i><b>1.3</b> ¿Para qué usar el EEG?</a></li>
+<li class="chapter" data-level="1.4" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#cuándo-no-es-adecuado"><i class="fa fa-check"></i><b>1.4</b> ¿Cuándo no es adecuado?</a></li>
+<li class="chapter" data-level="1.5" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#erps"><i class="fa fa-check"></i><b>1.5</b> ERPs</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#ventajas"><i class="fa fa-check"></i><b>1.5.1</b> Ventajas</a></li>
+<li class="chapter" data-level="1.5.2" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#limitaciones"><i class="fa fa-check"></i><b>1.5.2</b> Limitaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#análisis-tf"><i class="fa fa-check"></i><b>1.6</b> Análisis TF</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#ventajas-1"><i class="fa fa-check"></i><b>1.6.1</b> Ventajas</a></li>
+<li class="chapter" data-level="1.6.2" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#limitaciones-1"><i class="fa fa-check"></i><b>1.6.2</b> Limitaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#conceptos-importantes"><i class="fa fa-check"></i><b>1.7</b> Conceptos importantes</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#en-el-tiempo"><i class="fa fa-check"></i><b>1.7.1</b> En el tiempo</a></li>
+<li class="chapter" data-level="1.7.2" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#en-el-espacio"><i class="fa fa-check"></i><b>1.7.2</b> En el espacio</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#topografías"><i class="fa fa-check"></i><b>1.8</b> Topografías</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#localización-topográfica-y-localización-cerebral"><i class="fa fa-check"></i><b>1.8.1</b> Localización topográfica y localización cerebral</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#lo-que-importa-en-tf"><i class="fa fa-check"></i><b>1.9</b> Lo que importa en TF</a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#frecuencia-potencia-y-fase"><i class="fa fa-check"></i><b>1.9.1</b> Frecuencia, potencia y fase</a></li>
+<li class="chapter" data-level="1.9.2" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#compromiso-entre-precisión-temporal-y-frecuencial"><i class="fa fa-check"></i><b>1.9.2</b> Compromiso entre precisión temporal y frecuencial</a></li>
+<li class="chapter" data-level="1.9.3" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#los-datos-tf"><i class="fa fa-check"></i><b>1.9.3</b> Los datos TF</a></li>
+<li class="chapter" data-level="1.9.4" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#cómo-leer-un-mapa-tiempo-frecuencia"><i class="fa fa-check"></i><b>1.9.4</b> Cómo leer un mapa tiempo-frecuencia</a></li>
+<li class="chapter" data-level="1.9.5" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#qué-patrones-requieren-especial-atención"><i class="fa fa-check"></i><b>1.9.5</b> ¿Qué patrones requieren especial atención?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.10" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#del-registro-al-análisis"><i class="fa fa-check"></i><b>1.10</b> Del registro al análisis</a>
+<ul>
+<li class="chapter" data-level="1.10.1" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#preprocesamiento"><i class="fa fa-check"></i><b>1.10.1</b> Preprocesamiento</a></li>
+<li class="chapter" data-level="1.10.2" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#qué-operaciones-incluye"><i class="fa fa-check"></i><b>1.10.2</b> ¿Qué operaciones incluye?</a></li>
+<li class="chapter" data-level="1.10.3" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#análisis"><i class="fa fa-check"></i><b>1.10.3</b> Análisis</a></li>
+<li class="chapter" data-level="1.10.4" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#un-ejemplo-completo"><i class="fa fa-check"></i><b>1.10.4</b> Un ejemplo completo</a></li>
+<li class="chapter" data-level="1.10.5" data-path="electrofisiología-cognitiva.html"><a href="electrofisiología-cognitiva.html#lo-importante"><i class="fa fa-check"></i><b>1.10.5</b> Lo importante</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html"><i class="fa fa-check"></i><b>2</b> Preprocesamiento del EEG</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#qué-es-1"><i class="fa fa-check"></i><b>2.1</b> ¿Qué es?</a></li>
+<li class="chapter" data-level="2.2" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#antes-de-registrar"><i class="fa fa-check"></i><b>2.2</b> Antes de registrar</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#triggers"><i class="fa fa-check"></i><b>2.2.1</b> Triggers</a></li>
+<li class="chapter" data-level="2.2.2" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#tiempos-del-experimento"><i class="fa fa-check"></i><b>2.2.2</b> Tiempos del experimento</a></li>
+<li class="chapter" data-level="2.2.3" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#ensayos-electrodos-y-muestreo"><i class="fa fa-check"></i><b>2.2.3</b> Ensayos, electrodos y muestreo</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#epoquear"><i class="fa fa-check"></i><b>2.3</b> Epoquear</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#el-tiempo-0"><i class="fa fa-check"></i><b>2.3.1</b> El tiempo 0</a></li>
+<li class="chapter" data-level="2.3.2" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#efectos-de-borde"><i class="fa fa-check"></i><b>2.3.2</b> Efectos de borde</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#número-de-ensayos"><i class="fa fa-check"></i><b>2.4</b> Número de ensayos</a></li>
+<li class="chapter" data-level="2.5" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#filtros-temporal"><i class="fa fa-check"></i><b>2.5</b> Filtros temporal</a></li>
+<li class="chapter" data-level="2.6" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#rechazo-de-artefactos"><i class="fa fa-check"></i><b>2.6</b> Rechazo de artefactos</a></li>
+<li class="chapter" data-level="2.7" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#referencia"><i class="fa fa-check"></i><b>2.7</b> Referencia</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#qué-considerar"><i class="fa fa-check"></i><b>2.7.1</b> ¿Qué considerar?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#electrodos-defectuosos"><i class="fa fa-check"></i><b>2.8</b> Electrodos defectuosos</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#qué-limitación-tiene"><i class="fa fa-check"></i><b>2.8.1</b> ¿Qué limitación tiene?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#filtrado-espacial"><i class="fa fa-check"></i><b>2.9</b> Filtrado espacial</a></li>
+<li class="chapter" data-level="2.10" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#artefactos-e-ica"><i class="fa fa-check"></i><b>2.10</b> Artefactos e ICA</a>
+<ul>
+<li class="chapter" data-level="2.10.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#componentes-artefactuales"><i class="fa fa-check"></i><b>2.10.1</b> Componentes artefactuales</a></li>
+<li class="chapter" data-level="2.10.2" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#limitaciones-2"><i class="fa fa-check"></i><b>2.10.2</b> Limitaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#parpadeos"><i class="fa fa-check"></i><b>2.11</b> Parpadeos</a>
+<ul>
+<li class="chapter" data-level="2.11.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#pedir-que-no-parpadeen"><i class="fa fa-check"></i><b>2.11.1</b> ¿Pedir que no parpadeen?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#movimientos-oculares"><i class="fa fa-check"></i><b>2.12</b> Movimientos oculares</a></li>
+<li class="chapter" data-level="2.13" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#actividad-muscular"><i class="fa fa-check"></i><b>2.13</b> Actividad muscular</a>
+<ul>
+<li class="chapter" data-level="2.13.1" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#errores-parciales"><i class="fa fa-check"></i><b>2.13.1</b> Errores parciales</a></li>
+</ul></li>
+<li class="chapter" data-level="2.14" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#un-buen-registro"><i class="fa fa-check"></i><b>2.14</b> Un buen registro</a></li>
+<li class="chapter" data-level="2.15" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#sanity-checks"><i class="fa fa-check"></i><b>2.15</b> Sanity-checks</a></li>
+<li class="chapter" data-level="2.16" data-path="preprocesamiento-del-eeg.html"><a href="preprocesamiento-del-eeg.html#documentar"><i class="fa fa-check"></i><b>2.16</b> Documentar</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html"><i class="fa fa-check"></i><b>3</b> Tiempo-frecuencia</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#qué-buscamos-con-tf"><i class="fa fa-check"></i><b>3.1</b> ¿Qué buscamos con TF?</a></li>
+<li class="chapter" data-level="3.2" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#producto-punto"><i class="fa fa-check"></i><b>3.2</b> Producto punto</a></li>
+<li class="chapter" data-level="3.3" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#convolución"><i class="fa fa-check"></i><b>3.3</b> Convolución</a></li>
+<li class="chapter" data-level="3.4" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#transformada-de-fourier"><i class="fa fa-check"></i><b>3.4</b> Transformada de Fourier</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#qué-nos-dice-y-qué-no"><i class="fa fa-check"></i><b>3.4.1</b> ¿Qué nos dice y qué no?</a></li>
+<li class="chapter" data-level="3.4.2" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#duración-y-frecuencias"><i class="fa fa-check"></i><b>3.4.2</b> Duración y frecuencias</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#wavelets-de-morlet"><i class="fa fa-check"></i><b>3.5</b> Wavelets de Morlet</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#número-de-ciclos"><i class="fa fa-check"></i><b>3.5.1</b> Número de ciclos</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#fft-en-ventanas-cortas"><i class="fa fa-check"></i><b>3.6</b> FFT en ventanas cortas</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#qué-se-elige"><i class="fa fa-check"></i><b>3.6.1</b> ¿Qué se elige?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#multitaper"><i class="fa fa-check"></i><b>3.7</b> Multitaper</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#ventajas-y-límites"><i class="fa fa-check"></i><b>3.7.1</b> Ventajas y límites</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#potencia-y-fase"><i class="fa fa-check"></i><b>3.8</b> Potencia y fase</a></li>
+<li class="chapter" data-level="3.9" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#escala-de-potencia"><i class="fa fa-check"></i><b>3.9</b> Escala de potencia</a></li>
+<li class="chapter" data-level="3.10" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#línea-base"><i class="fa fa-check"></i><b>3.10</b> Línea base</a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#decibeles"><i class="fa fa-check"></i><b>3.10.1</b> Decibeles</a></li>
+<li class="chapter" data-level="3.10.2" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#otras-transformaciones"><i class="fa fa-check"></i><b>3.10.2</b> Otras transformaciones</a></li>
+<li class="chapter" data-level="3.10.3" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#cómo-elegir-el-período"><i class="fa fa-check"></i><b>3.10.3</b> ¿Cómo elegir el período?</a></li>
+<li class="chapter" data-level="3.10.4" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#una-línea-base-por-condición-o-una-común"><i class="fa fa-check"></i><b>3.10.4</b> ¿Una línea base por condición o una común?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#itpc"><i class="fa fa-check"></i><b>3.11</b> ITPC</a>
+<ul>
+<li class="chapter" data-level="3.11.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#por-qué-no-promediar-directamente-los-ángulos"><i class="fa fa-check"></i><b>3.11.1</b> ¿Por qué no promediar directamente los ángulos?</a></li>
+<li class="chapter" data-level="3.11.2" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#cómo-se-calcula"><i class="fa fa-check"></i><b>3.11.2</b> ¿Cómo se calcula?</a></li>
+<li class="chapter" data-level="3.11.3" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#qué-debemos-cuidar"><i class="fa fa-check"></i><b>3.11.3</b> ¿Qué debemos cuidar?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.12" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#conectividad"><i class="fa fa-check"></i><b>3.12</b> Conectividad</a></li>
+<li class="chapter" data-level="3.13" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#ispc"><i class="fa fa-check"></i><b>3.13</b> ISPC</a>
+<ul>
+<li class="chapter" data-level="3.13.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#qué-significa-un-valor-alto"><i class="fa fa-check"></i><b>3.13.1</b> ¿Qué significa un valor alto?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.14" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#ispc-time"><i class="fa fa-check"></i><b>3.14</b> ISPC-time</a>
+<ul>
+<li class="chapter" data-level="3.14.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#ventajas-y-límites-1"><i class="fa fa-check"></i><b>3.14.1</b> Ventajas y límites</a></li>
+</ul></li>
+<li class="chapter" data-level="3.15" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#ispc-trials"><i class="fa fa-check"></i><b>3.15</b> ISPC-trials</a>
+<ul>
+<li class="chapter" data-level="3.15.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#ventajas-y-límites-2"><i class="fa fa-check"></i><b>3.15.1</b> Ventajas y límites</a></li>
+<li class="chapter" data-level="3.15.2" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#un-ejemplo-para-distinguirlas"><i class="fa fa-check"></i><b>3.15.2</b> Un ejemplo para distinguirlas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.16" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#precauciones"><i class="fa fa-check"></i><b>3.16</b> Precauciones</a>
+<ul>
+<li class="chapter" data-level="3.16.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#conducción-de-volumen"><i class="fa fa-check"></i><b>3.16.1</b> Conducción de volumen</a></li>
+<li class="chapter" data-level="3.16.2" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#cantidad-de-datos-potencia-y-línea-base"><i class="fa fa-check"></i><b>3.16.2</b> Cantidad de datos, potencia y línea base</a></li>
+</ul></li>
+<li class="chapter" data-level="3.17" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#conectividad-en-poder"><i class="fa fa-check"></i><b>3.17</b> Conectividad en poder</a>
+<ul>
+<li class="chapter" data-level="3.17.1" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#cómo-se-interpreta"><i class="fa fa-check"></i><b>3.17.1</b> ¿Cómo se interpreta?</a></li>
+<li class="chapter" data-level="3.17.2" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#pearson-o-spearman"><i class="fa fa-check"></i><b>3.17.2</b> Pearson o Spearman</a></li>
+</ul></li>
+<li class="chapter" data-level="3.18" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#correlación-de-poder-tiempo"><i class="fa fa-check"></i><b>3.18</b> Correlación de poder (tiempo)</a></li>
+<li class="chapter" data-level="3.19" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#correlación-de-poder-ensayos"><i class="fa fa-check"></i><b>3.19</b> Correlación de poder (ensayos)</a></li>
+<li class="chapter" data-level="3.20" data-path="tiempo-frecuencia.html"><a href="tiempo-frecuencia.html#limitaciones-3"><i class="fa fa-check"></i><b>3.20</b> Limitaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="eeg-en-la-práctica.html"><a href="eeg-en-la-práctica.html"><i class="fa fa-check"></i><b>4</b> EEG en la práctica</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="eeg-en-la-práctica.html"><a href="eeg-en-la-práctica.html#conceptos-importantes-1"><i class="fa fa-check"></i><b>4.1</b> Conceptos importantes</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="eeg-en-la-práctica.html"><a href="eeg-en-la-práctica.html#el-equipo-de-registro"><i class="fa fa-check"></i><b>4.1.1</b> El equipo de registro</a></li>
+<li class="chapter" data-level="4.1.2" data-path="eeg-en-la-práctica.html"><a href="eeg-en-la-práctica.html#qué-se-registra"><i class="fa fa-check"></i><b>4.1.2</b> Qué se registra?</a></li>
+<li class="chapter" data-level="4.1.3" data-path="eeg-en-la-práctica.html"><a href="eeg-en-la-práctica.html#electrodos-referencia-y-tierra"><i class="fa fa-check"></i><b>4.1.3</b> Electrodos, referencia y tierra</a></li>
+<li class="chapter" data-level="4.1.4" data-path="eeg-en-la-práctica.html"><a href="eeg-en-la-práctica.html#impedancia-y-ruido"><i class="fa fa-check"></i><b>4.1.4</b> Impedancia y ruido</a></li>
+<li class="chapter" data-level="4.1.5" data-path="eeg-en-la-práctica.html"><a href="eeg-en-la-práctica.html#artefactos-comunes"><i class="fa fa-check"></i><b>4.1.5</b> Artefactos comunes</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="eeg-en-la-práctica.html"><a href="eeg-en-la-práctica.html#antedentes-del-estudio"><i class="fa fa-check"></i><b>4.2</b> Antedentes del estudio</a></li>
+<li class="chapter" data-level="4.3" data-path="eeg-en-la-práctica.html"><a href="eeg-en-la-práctica.html#preparación-del-registro"><i class="fa fa-check"></i><b>4.3</b> Preparación del registro</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="eeg-en-la-práctica.html"><a href="eeg-en-la-práctica.html#varios-días-antes"><i class="fa fa-check"></i><b>4.3.1</b> Varios días antes</a></li>
+<li class="chapter" data-level="4.3.2" data-path="eeg-en-la-práctica.html"><a href="eeg-en-la-práctica.html#días-antes"><i class="fa fa-check"></i><b>4.3.2</b> 2–3 días antes</a></li>
+<li class="chapter" data-level="4.3.3" data-path="eeg-en-la-práctica.html"><a href="eeg-en-la-práctica.html#día-antes"><i class="fa fa-check"></i><b>4.3.3</b> 1 día antes</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="eeg-en-la-práctica.html"><a href="eeg-en-la-práctica.html#registro-día-d"><i class="fa fa-check"></i><b>4.4</b> Registro (día D)</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Plataforma de usuarios locos por las ondas EEG</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="eeg-en-la-práctica" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Capítulo 4</span> EEG en la práctica<a href="eeg-en-la-práctica.html#eeg-en-la-práctica" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="conceptos-importantes-1" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Conceptos importantes<a href="eeg-en-la-práctica.html#conceptos-importantes-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El electroencefalograma (EEG) comprende el registro de la actividad cerebral mediante electrodos. Vamos a considerar los distintos aspectos de este registro.</p>
+<div id="el-equipo-de-registro" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> El equipo de registro<a href="eeg-en-la-práctica.html#el-equipo-de-registro" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Sistema de 64 canales EEG (registra señales cerebrales) + 8 EXG opcionales (registra artefactos fisiológicos)</li>
+<li>Señal DC-acoplada, 24 bits, bajo ruido</li>
+<li>Tasa de sampleo: hasta 2048 Hz</li>
+<li>Software de adquisición: ActiView</li>
+</ul>
+</div>
+<div id="qué-se-registra" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Qué se registra?<a href="eeg-en-la-práctica.html#qué-se-registra" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Se registra la actividad eléctrica que aparece en el cuero cabelludo</li>
+<li>Esta actividad de expresa en el orden de los <strong>microvoltios</strong></li>
+</ul>
+</div>
+<div id="electrodos-referencia-y-tierra" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Electrodos, referencia y tierra<a href="eeg-en-la-práctica.html#electrodos-referencia-y-tierra" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Existen los siguientes componentes que son importantes:</p>
+<ul>
+<li><strong>Electrodos</strong>: Sensores que miden diferencias de potencial en el cuero cabelludo</li>
+<li><strong>Referencia</strong>: Punto respecto al cual se mide la actividad eléctrica de cada canal</li>
+<li><strong>Tierra / sistema activo</strong>: Es un retorno común para la corriente (cierra el circuito)</li>
+</ul>
+</div>
+<div id="impedancia-y-ruido" class="section level3 hasAnchor" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> Impedancia y ruido<a href="eeg-en-la-práctica.html#impedancia-y-ruido" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Además se debe considerar:</p>
+<ul>
+<li><strong>Impedancia</strong>: Es la resistencia que hay al flujo de corriente Se mide en Ohms. Y para un registro EEG la idea es que la impedancia sea lo más baja posible</li>
+<li><strong>Ruido</strong>: Es lo que no constituye actividad eléctrica cerebral Por ejemplo: red eléctrica (50/60 Hz), mal contacto electrodo–piel, y movimiento de cables o del sujeto</li>
+</ul>
+</div>
+<div id="artefactos-comunes" class="section level3 hasAnchor" number="4.1.5">
+<h3><span class="header-section-number">4.1.5</span> Artefactos comunes<a href="eeg-en-la-práctica.html#artefactos-comunes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La señal EEG puede estar contaminada por lo siguiente:</p>
+<ul>
+<li><strong>EOG (actividad de los ojos)</strong>: Parpadeos y movimientos oculares; gran amplitud; predominio frontal</li>
+<li><strong>EMG (actividad muscular)</strong>: Tensión mandibular, cuello o frente; señal rápida y de alta frecuencia</li>
+<li><strong>ECG (actividad cardiaca)</strong>: Actividad del corazón. Es una señal prominente y tiene una frecuencia característica</li>
+<li><strong>Derivas</strong>: Cambios lentos de la señal. Muchas veces está asociado a sudor, movimientos lentos o cambios de impedancia</li>
+</ul>
+</div>
+</div>
+<div id="antedentes-del-estudio" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Antedentes del estudio<a href="eeg-en-la-práctica.html#antedentes-del-estudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Este estudio es liderado por Fabiola Salas (y apoyado por Marcelo Leiva y José Luis Ulloa).</p></li>
+<li><p>En este estudio se buscar investigar el rol de los rasgos límite de personalidad en la flexibilidad cognitiva.</p></li>
+<li><p>Se miden los rasgos de personalidad límite a través de la aplicación de un instrumento.</p></li>
+<li><p>Se miden aspectos conductuales y neuronales de la flexibilidad cognitiva aplicando una tarea de task-switching mientras se registra la actividad cerebral con EEG.</p></li>
+<li><p>La tarea de task-switching consiste en responder a un mismo estímulo usando reglas distintas, indicadas por una señal. En algunos ensayos la regla se repite (no-switch) y en otros cambia (switch). Los ensayos con cambio suelen producir respuestas más lentas y menos precisas, lo que se conoce como “costo de cambio” y refleja la flexibilidad cognitiva.</p></li>
+<li><p>Con estas mediciones se buscan identificar asocaciaciones en los niveles rasgos límite de la personalidad y variaciones en el desempeño de la tarea de task-switching (tiempos de reacción y precisión asociados con los “costos de cambio”)</p></li>
+<li><p>Se analizarán potenciales relacionados a eventos (ERP; P2, N2 y P3) y actividad oscilatoria (alfa y theta).</p></li>
+</ul>
+</div>
+<div id="preparación-del-registro" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Preparación del registro<a href="eeg-en-la-práctica.html#preparación-del-registro" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="varios-días-antes" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Varios días antes<a href="eeg-en-la-práctica.html#varios-días-antes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Al confirmar la participación:</strong></p>
+<ul>
+<li>Solicita teléfono de contacto del/la participante</li>
+<li>Entrega un número de contacto del laboratorio/investigador</li>
+<li>Agenda la sesión en el calendario del laboratorio</li>
+</ul>
+</div>
+<div id="días-antes" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> 2–3 días antes<a href="eeg-en-la-práctica.html#días-antes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Envia un mensaje de recordatorio que incluya:</strong></p>
+<ul>
+<li>Leer previamente el consentimiento informado</li>
+<li>Llegar puntualmente</li>
+<li>Venir con el pelo seco, limpio y sin maquillaje</li>
+<li>Dormir bien y desayunar (si es parte de la rutina)</li>
+<li>Tomar medicamentos habituales (si corresponde)</li>
+</ul>
+<p>Además, intercambia teléfonos de contacto por cualquier imprevisto</p>
+</div>
+<div id="día-antes" class="section level3 hasAnchor" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> 1 día antes<a href="eeg-en-la-práctica.html#día-antes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Recordatorio por correo o teléfono. Reforzar:</strong></p>
+<ul>
+<li>Buen descanso y desayuno</li>
+<li>Sin maquillaje ni aceites en la cara/pelo</li>
+<li>Pelo seco</li>
+</ul>
+<p>Preparar:</p>
+<ul>
+<li>3 copias del consentimiento informado</li>
+<li>Lápiz</li>
+<li>Verificar que todo el equipamiento EEG esté disponible</li>
+</ul>
+</div>
+</div>
+<div id="registro-día-d" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Registro (día D)<a href="eeg-en-la-práctica.html#registro-día-d" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Preparación del laboratorio:</strong></p>
+<ul>
+<li>Llegar al menos 40 minutos antes</li>
+<li>Abrir ventanas y ventilar la sala</li>
+<li>Encender: PC de adquisición (computador donde se recolectan los datos de EEG) + PC de estimulación (computador que “genera” la tarea que hace el participante)</li>
+</ul>
+<p><strong>Material administrativo:</strong></p>
+<ul>
+<li>Tener consentimientos listos
+<img src="docs/images/papeles.jpg" width="50%" style="display: block; margin: auto;" /></li>
+<li>Abrir logbook / bitácora</li>
+<li>Definir y anotar número de identificación (ID) del participante</li>
+</ul>
+<p><strong>Insumos:</strong></p>
+<ul>
+<li>Gel conductor</li>
+<li>Jeringas</li>
+<li>Alcohol</li>
+<li>Toallas de papel</li>
+<li>Huincha de medir</li>
+<li>Anillos/stickers para electrodos</li>
+</ul>
+<p><img src="docs/images/insumos.jpg" width="60%" style="display: block; margin: auto;" /></p>
+<p><strong>Equipamiento:</strong></p>
+<ul>
+<li>PCs (adquisición y estimulación)</li>
+<li>Amplificador y batería (revisar que el amplificador está cargado, ver abajo)</li>
+<li>Interfaz de triggers</li>
+<li>Cables varios (la fibra óptica conecta amplificador a interfaz de triggers)</li>
+</ul>
+<p><strong>Gorras y electrodos:</strong></p>
+<ul>
+<li>Gorras EEG (contar con varias tallas)
+<img src="docs/images/Insumos_EEG_008.jpg" width="60%" style="display: block; margin: auto;" /></li>
+<li>Electrodos EEG
+<img src="docs/images/Insumos_EEG_025.jpg" width="50%" style="display: block; margin: auto;" /></li>
+<li>Electrodos EXG (EOG, mastoides)
+<img src="docs/images/Insumos_EEG_018.jpg" width="50%" style="display: block; margin: auto;" /></li>
+</ul>
+<p><strong>Conexiones y configuración inicial:</strong></p>
+<ul>
+<li>Conectar fibra óptica al amplificador
+<img src="docs/images/amplif.jpg" width="40%" style="display: block; margin: auto;" /></li>
+<li>Conectar interfaz de triggers al PC de adquisición</li>
+<li>Conectar amplificador a la batería</li>
+<li>Encender amplificador (luz azul parpadeante)</li>
+</ul>
+<p><img src="docs/images/esquema_eeg_setup_2.jpg" width="90%" style="display: block; margin: auto;" /></p>
+<p><strong>Configuración en PC de adquisición:</strong></p>
+<ul>
+<li>Abrir ActiveView</li>
+<li>Cargar archivo de configuración correspondiente
+<img src="docs/images/Insumos_EEG_027.jpg" width="60%" style="display: block; margin: auto;" /></li>
+<li>Verificar nivel de batería del amplificador (se enciende una luz azul que parpadea)</li>
+<li>Ajustar tasa de muestreo a 1024 Hz (decimación 1/2)</li>
+</ul>
+<p><img src="docs/images/decim.jpeg" width="60%" style="display: block; margin: auto;" /></p>
+<p><strong>Verificación de triggers:</strong></p>
+<ul>
+<li>Ejecutar tarea de prueba</li>
+<li>Cambiar visualización de triggers a formato decimal</li>
+<li>Verificar que:
+<ul>
+<li>Los triggers aparecen</li>
+<li>Coinciden con el esquema esperado</li>
+<li>La secuencia es correcta
+<img src="docs/images/triggers_compiled.jpg" width="100%" style="display: block; margin: auto;" /></li>
+</ul></li>
+</ul>
+<p><strong>Llegada del/la participante:</strong></p>
+<ul>
+<li>Hacer sentar y dejar descansar ~10 minutos</li>
+<li>Anotar hora de llegada en la bitácora</li>
+<li>Firmar 3 copias del consentimiento</li>
+<li>Confirmar modalidad de pago (si aplica)</li>
+<li>Ofrecer ir al baño</li>
+<li>Pedir retirar objetos metálicos</li>
+</ul>
+<p><strong>Preparación del/la participante:</strong></p>
+<ul>
+<li>Explicar limpieza de piel con alcohol</li>
+<li>Explicar registro EEG, EOG y electrodos de referencia</li>
+</ul>
+<p><strong>Mediciones (registrar en logbook):</strong></p>
+<ul>
+<li>Circunferencia de cabeza (definir talla de gorra)</li>
+<li>Distancia nasion–inion</li>
+<li>Distancia entre pabellones auriculares</li>
+</ul>
+<p><strong>Electrodos externos:</strong></p>
+<ul>
+<li>Limpiar piel con alcohol (avisar antes)</li>
+<li>Preparar electrodos con sticker y gel (sin exceso)</li>
+<li>Colocar:
+<ul>
+<li>EX1 / EX2: EOG horizontal</li>
+<li>EX3 / EX4: EOG vertical</li>
+<li>EX5 / EX6: mastoideos</li>
+</ul></li>
+</ul>
+<p><strong>Colocación de la gorra:</strong></p>
+<ul>
+<li>Colocar gorra y verificar comodidad</li>
+<li>Ajustar posición:
+<ul>
+<li>Frontal = 10% nasion–inion</li>
+<li>Cz = 50% nasion–inion</li>
+</ul></li>
+<li>Ajustar correa del mentón</li>
+<li>Retirar etiqueta posterior (electrodo Oz)</li>
+<li>Aplicar gel con jeringa separando el pelo</li>
+<li>Comenzar por electrodos occipitales</li>
+<li>Continuar siguiendo el orden del sistema</li>
+<li>Fijar cables al hombro si es posible</li>
+<li>Conectar electrodos al amplificador</li>
+</ul>
+<p><strong>Chequeo de señal:</strong></p>
+<ul>
+<li>Visualizar señal a escala 200 µV</li>
+<li>Revisar impedancias (&lt; 30 kΩ)</li>
+<li>Corregir electrodos inestables</li>
+<li>Probar:
+<ul>
+<li>Parpadeo → EOG vertical</li>
+<li>Mirada izquierda/derecha → EOG horizontal</li>
+</ul></li>
+</ul>
+<p><strong>Instrucciones al participante:</strong></p>
+<ul>
+<li>Pedir silenciar el celular</li>
+<li>Explicar:
+<ul>
+<li>Primero entrenamiento</li>
+<li>Luego experimento</li>
+</ul></li>
+<li>Indicar teclas de respuesta (1 y 2)</li>
+<li>Pedir parpadear 1–2 veces después de responder</li>
+<li>Reforzar parpadeo sistemático para evitar fatiga</li>
+</ul>
+<p><strong>Registro EEG:</strong></p>
+<ul>
+<li>Orden:
+<ul>
+<li>Entrenamiento</li>
+<li>Experimento</li>
+<li>Resting state</li>
+</ul></li>
+<li>Durante el registro:
+<ul>
+<li>Iniciar primero grabación EEG, luego la tarea</li>
+<li>Verificar señal verde de grabación</li>
+<li>Monitorear:
+<ul>
+<li>Triggers</li>
+<li>Respuestas</li>
+<li>Parpadeos en momentos indicados</li>
+</ul></li>
+<li>En pausas, chequear estado del participante</li>
+</ul></li>
+</ul>
+<p><strong>Término de la sesión:</strong></p>
+<ul>
+<li>Retirar primero la gorra</li>
+<li>Retirar electrodos externos desde la base</li>
+<li>Ayudar al participante a limpiarse</li>
+<li>Cambiar batería del amplificador</li>
+<li>Limpiar electrodos y gorra</li>
+<li>Dejar el laboratorio ordenado</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tiempo-frecuencia.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/joseluisulloafulgeri/pulpo_eeg/edit/main/04-practico.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/joseluisulloafulgeri/pulpo_eeg/blob/main/04-practico.Rmd",
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

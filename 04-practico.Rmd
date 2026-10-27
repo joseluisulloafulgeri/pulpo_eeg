@@ -1,4 +1,4 @@
-# Registro del EEG
+# EEG en la práctica
 
 ## Conceptos importantes
 

@@ -13,6 +13,13 @@
 - Debes aplicar los mismos procedimientos a las distintas condiciones. Evita que haya diferencias introducidas por el procesamiento!
 - Registra las decisiones que hiciste para cada parte de tu pre-procesamiento (ensayos rechazados, electrodos interpolados y componentes retirados). Esto te permmite reproducir tu análisis.
 
+***
+Junto a esta lectura haremos un preprocesamiento básico
+
+Entra a este <a href="https://colab.research.google.com/drive/1u1IXwsId15vGsdlRJ2e-hFuwz6e96t3d" target="_blank">link</a> para que comencemos a trabajar en el código
+
+***
+
 ## Antes de registrar
 
 **Un buen análisis no compensa un experimento mal diseñado.**

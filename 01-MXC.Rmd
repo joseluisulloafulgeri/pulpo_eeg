@@ -16,6 +16,8 @@ knitr::include_graphics('docs/images/Cogn_electro_1.jpg')
 - Se describe un **espectro de investigadores con distintos objetivos**:
   - En un extremo, el interés principal es **comprender los procesos cognitivos.** La electrofisiología permite distinguir procesos y subcomponentes que las medidas conductuales pueden no diferenciar. Se priorizan el diseño experimental y las teorías cognitivas.
   - En el otro extremo, el interés principal es **comprender las propiedades funcionales de las redes neuronales.** Los paradigmas cognitivos sirven para provocar patrones específicos de actividad neuronal. Se priorizan el análisis de las señales y su interpretación neurofisiológica.
+  
+`r knitr::asis_output("\U0001F4A1")` <span style="color:red">**Ten en cuenta:** El EEG es sólo una técnica para registrar la actividad cerebral. Antes que nada lo más importante es que tengas clara cuál es tu pregunta de investigación.</span>
 
 
 ## ¿Qué se registra con EEG?
@@ -113,6 +115,13 @@ knitr::include_graphics('docs/images/ERP_1.jpg')
 ```{r, echo=FALSE, out.width='70%', fig.align='center', fig.cap=NULL}
 knitr::include_graphics('docs/images/MXC_fig_2_1.jpg')
 ```
+
+***
+Pausemos un momento para meter los dedos en la masa
+
+Entra a este <a href="https://colab.research.google.com/drive/1gWdqFozRqC0-ThTb7zrHRGuXyAtNejOL" target="_blank">link</a> para que comencemos a trabajar en el código
+
+***
 
 ## Análisis TF
 
